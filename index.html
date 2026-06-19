@@ -19,16 +19,13 @@
     --tint:#e3f6f8; --ok:#2e8b57;
   }
   html,body{ height:100%; }
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--sand); color:var(--ink); overscroll-behavior:none;
-  }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--sand); color:var(--ink); overscroll-behavior:none; }
   #app{ position:fixed; inset:0; display:flex; flex-direction:column; }
   .screens{ flex:1; position:relative; overflow:hidden; min-height:0; }
   .screen{ position:absolute; inset:0; overflow-y:auto; -webkit-overflow-scrolling:touch;
     padding:0 0 calc(96px + env(safe-area-inset-bottom)); display:none; }
   .screen.active{ display:block; }
-
   .ic{ width:1.15em; height:1.15em; display:inline-block; vertical-align:-0.18em; stroke:currentColor; fill:none; flex-shrink:0; }
 
   .hero{ background:linear-gradient(160deg,var(--teal),var(--teal-d)); color:#fff;
@@ -44,14 +41,12 @@
   .pageHead .sub{ opacity:.9; font-size:13px; margin-top:2px; }
 
   .countdown{ display:flex; gap:8px; margin:16px 16px 4px; }
-  .cd{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:12px 6px; text-align:center; box-shadow:0 2px 8px rgba(14,124,140,.06); }
+  .cd{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 6px; text-align:center; box-shadow:0 2px 8px rgba(14,124,140,.06); }
   .cd b{ display:block; font-size:26px; font-weight:800; color:var(--teal-d); line-height:1; }
   .cd span{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
   .cdNote{ text-align:center; color:var(--muted); font-size:13px; margin:10px 16px 4px; }
 
-  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px;
-    padding:16px; margin:14px 16px; box-shadow:0 2px 10px rgba(14,124,140,.05); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin:14px 16px; box-shadow:0 2px 10px rgba(14,124,140,.05); }
   .card h3{ font-size:16px; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:9px; }
   .card h3 .ic{ width:20px; height:20px; color:var(--teal); }
   .row{ display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:14px; }
@@ -61,7 +56,6 @@
   .pill{ display:inline-block; background:var(--tint); color:var(--teal-d); font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; }
   .pill.ok{ background:#e3f3ea; color:var(--ok); }
 
-  /* Wetter */
   .wx{ display:flex; align-items:center; gap:14px; }
   .wxIcon{ width:54px; height:54px; color:var(--lemon-d); flex-shrink:0; }
   .wxTemp{ font-size:34px; font-weight:800; color:var(--teal-d); line-height:1; }
@@ -74,23 +68,18 @@
   .wxErr{ font-size:13px; color:var(--muted); }
 
   .quick{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 16px; }
-  .qbtn{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px;
-    text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:8px;
-    box-shadow:0 2px 8px rgba(14,124,140,.05); }
-  .qbtn .e{ width:34px; height:34px; border-radius:10px; background:var(--tint); color:var(--teal);
-    display:flex; align-items:center; justify-content:center; }
+  .qbtn{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px; text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:8px; box-shadow:0 2px 8px rgba(14,124,140,.05); }
+  .qbtn .e{ width:34px; height:34px; border-radius:10px; background:var(--tint); color:var(--teal); display:flex; align-items:center; justify-content:center; }
   .qbtn .e.lemon{ background:var(--lemon-bg); color:var(--lemon-d); }
   .qbtn .e .ic{ width:20px; height:20px; }
   .qbtn .t{ font-weight:700; font-size:14px; }
   .qbtn .d{ font-size:12px; color:var(--muted); }
-
   a.call{ color:var(--teal); font-weight:700; text-decoration:none; }
 
   .todo{ list-style:none; }
   .todo li{ display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line); }
   .todo li:last-child{ border-bottom:0; }
-  .chk{ width:26px; height:26px; border-radius:8px; border:2px solid var(--teal); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer; transition:.15s; }
+  .chk{ width:26px; height:26px; border-radius:8px; border:2px solid var(--teal); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer; transition:.15s; }
   .chk .ic{ width:16px; height:16px; opacity:0; }
   .chk.done{ background:var(--teal); } .chk.done .ic{ opacity:1; }
   .todo .txt{ font-size:14px; line-height:1.45; padding-top:2px; }
@@ -101,17 +90,13 @@
   .progTxt{ text-align:center; font-size:12px; color:var(--muted); margin:8px 16px 0; }
   .resetBtn{ display:block; margin:18px auto 0; background:none; border:1px solid var(--line); color:var(--muted); padding:8px 16px; border-radius:999px; font-size:13px; }
 
-  .em{ display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line);
-    border-radius:16px; padding:14px 16px; margin:14px 16px; text-decoration:none; color:var(--ink);
-    box-shadow:0 2px 10px rgba(14,124,140,.05); }
-  .em .e{ width:40px; height:40px; border-radius:12px; background:var(--tint); color:var(--teal);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .em{ display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 16px; margin:14px 16px; text-decoration:none; color:var(--ink); box-shadow:0 2px 10px rgba(14,124,140,.05); }
+  .em .e{ width:40px; height:40px; border-radius:12px; background:var(--tint); color:var(--teal); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .em .e .ic{ width:22px; height:22px; }
   .em .e.warm{ background:var(--lemon-bg); color:var(--lemon-d); }
   .em .info{ flex:1; } .em .info b{ display:block; font-size:15px; } .em .info span{ font-size:12px; color:var(--muted); }
   .em .num{ color:var(--teal); font-weight:800; font-size:14px; }
   .emHead{ font-weight:800; font-size:13px; color:var(--teal-d); text-transform:uppercase; letter-spacing:.6px; margin:18px 16px 2px; }
-
   .footer{ text-align:center; color:var(--muted); font-size:12px; padding:18px 16px; }
 
   .gallery{ display:flex; gap:8px; overflow-x:auto; padding:14px 16px 2px; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; }
@@ -133,10 +118,28 @@
   .lnk.book{ background:var(--lemon); color:#6b5a07; }
   .sectTip{ font-size:12.5px; color:var(--muted); margin:2px 16px 0; line-height:1.5; }
 
-  .tabbar{ flex-shrink:0; height:calc(72px + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom);
-    background:#fff; border-top:1px solid var(--line); display:flex; box-shadow:0 -2px 14px rgba(14,124,140,.07); }
-  .tab{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
-    border:0; background:none; color:var(--muted); font-size:9px; font-weight:600; cursor:pointer; padding-top:7px; }
+  .srv{ display:flex; flex-direction:column; gap:8px; }
+  .srvBtn{ display:flex; align-items:center; gap:12px; padding:11px 12px; border:1px solid var(--line); border-radius:12px; text-decoration:none; color:var(--ink); }
+  .srvBtn .ic{ width:20px; height:20px; color:var(--teal); }
+  .srvBtn .lab{ flex:1; font-weight:700; font-size:14px; }
+  .srvBtn .lab small{ display:block; font-weight:400; color:var(--muted); font-size:12px; margin-top:1px; }
+  .srvBtn .arr{ color:var(--muted); width:16px; height:16px; }
+  .qrRow{ display:flex; gap:12px; }
+  .qrBox{ flex:1; text-align:center; }
+  .qrBox svg{ width:100%; max-width:160px; height:auto; border:1px solid var(--line); border-radius:12px; }
+  .qrBox span{ display:block; font-size:12px; color:var(--muted); margin-top:6px; font-weight:600; }
+
+  .acc{ margin:0 16px; }
+  .accItem{ background:var(--card); border:1px solid var(--line); border-radius:14px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(14,124,140,.05); }
+  .accBtn{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; background:none; border:0; font-size:15px; font-weight:700; color:var(--ink); cursor:pointer; font-family:inherit; }
+  .accBtn .ic{ width:18px; height:18px; color:var(--muted); transition:transform .2s; }
+  .accItem.open .accBtn .ic{ transform:rotate(90deg); }
+  .accBody{ display:none; padding:0 12px 12px; }
+  .accItem.open .accBody{ display:block; }
+  .ticketImg{ width:100%; border-radius:12px; margin-top:8px; border:1px solid var(--line); display:block; }
+
+  .tabbar{ flex-shrink:0; height:calc(72px + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom); background:#fff; border-top:1px solid var(--line); display:flex; box-shadow:0 -2px 14px rgba(14,124,140,.07); }
+  .tab{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; border:0; background:none; color:var(--muted); font-size:9px; font-weight:600; cursor:pointer; padding-top:7px; }
   .tab .ic{ width:21px; height:21px; }
   .tab.active{ color:var(--teal); }
 </style>
@@ -160,6 +163,7 @@
   <symbol id="ic-boat" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15h16l-2.4 4.5H6.4z"/><path d="M12 3.5v9.5M12 3.5l5.5 3.2L12 9"/></symbol>
   <symbol id="ic-star" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.3 4.7 5.2.8-3.8 3.6.9 5.1L12 16l-4.6 2.5.9-5.1-3.8-3.6 5.2-.8z"/></symbol>
   <symbol id="ic-arr" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
   <symbol id="ic-cloud" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.4-8 5 5 0 0 1 9.7-1.2A3.5 3.5 0 0 1 17 18z"/></symbol>
   <symbol id="ic-suncloud" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 2.5v1.5M3.2 8H1.7M12.8 3.2l-1 1M3.2 3.2l1 1"/><path d="M10 19a3.5 3.5 0 0 1-.3-7 4.2 4.2 0 0 1 8 .9A3 3 0 0 1 18 19z"/></symbol>
   <symbol id="ic-rain" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15a4 4 0 0 1-.4-8 5 5 0 0 1 9.7-1.2A3.5 3.5 0 0 1 17 15z"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></symbol>
@@ -169,35 +173,30 @@
 <div id="app">
   <div class="screens">
 
-    <!-- HOME -->
     <section class="screen active" id="s-home">
       <div class="hero">
         <h1>Sizilien 2026 <svg class="ic"><use href="#ic-sun"/></svg></h1>
         <div class="sub">Familie Landtwing · 11.–25. Juli · Siracusa</div>
         <svg class="deco"><use href="#ic-sun"/></svg>
       </div>
-
       <div class="countdown" id="countdown">
         <div class="cd"><b id="cd-d">–</b><span>Tage</span></div>
         <div class="cd"><b id="cd-h">–</b><span>Std</span></div>
         <div class="cd"><b id="cd-m">–</b><span>Min</span></div>
       </div>
       <div class="cdNote" id="cdNote">bis zur Abreise</div>
-
       <div class="card">
         <h3><svg class="ic"><use href="#ic-sun"/></svg>Wetter in Siracusa</h3>
         <div id="wxBody"><div class="wxErr">Wetter wird geladen …</div></div>
       </div>
-
       <div class="quick">
-        <a class="qbtn" href="#" data-go="fluege"><span class="e"><svg class="ic"><use href="#ic-plane"/></svg></span><span class="t">Flüge</span><span class="d">Hin &amp; Rück</span></a>
+        <a class="qbtn" href="#" data-go="fluege"><span class="e"><svg class="ic"><use href="#ic-plane"/></svg></span><span class="t">Flüge</span><span class="d">Tickets &amp; Check-in</span></a>
         <a class="qbtn" href="#" data-go="villa"><span class="e"><svg class="ic"><use href="#ic-villa"/></svg></span><span class="t">Villa del Mito</span><span class="d">Siracusa</span></a>
         <a class="qbtn" href="#" data-go="auto"><span class="e lemon"><svg class="ic"><use href="#ic-car"/></svg></span><span class="t">Mietwagen</span><span class="d">Sixt · Peugeot</span></a>
         <a class="qbtn" href="#" data-go="ausfluege"><span class="e lemon"><svg class="ic"><use href="#ic-map"/></svg></span><span class="t">Ausflüge</span><span class="d">8 Ziele</span></a>
         <a class="qbtn" href="#" data-go="essen"><span class="e"><svg class="ic"><use href="#ic-food"/></svg></span><span class="t">Essen</span><span class="d">Restaurants</span></a>
         <a class="qbtn" href="#" data-go="todo"><span class="e"><svg class="ic"><use href="#ic-check"/></svg></span><span class="t">To-do</span><span class="d" id="todoCount">offene Punkte</span></a>
       </div>
-
       <div class="card">
         <h3><svg class="ic"><use href="#ic-calendar"/></svg>Auf einen Blick</h3>
         <div class="row"><span class="k">Reisezeit</span><span class="v">Sa 11.07. – Sa 25.07.2026</span></div>
@@ -206,7 +205,6 @@
         <div class="row"><span class="k">Reisende</span><span class="v">Jost · Susanne · Remo · Livia · Jana</span></div>
         <div class="row"><span class="k">Villa bezahlt</span><span class="v"><span class="pill ok">✓ vollständig</span></span></div>
       </div>
-
       <div class="card">
         <h3><svg class="ic"><use href="#ic-cash"/></svg>Bargeld mitnehmen</h3>
         <div class="row"><span class="k">Kaution Villa</span><span class="v">€ 500 (bar)</span></div>
@@ -216,7 +214,6 @@
       <div class="footer">Tipp: „Teilen → Zum Home-Bildschirm" macht daraus eine App.</div>
     </section>
 
-    <!-- FLÜGE -->
     <section class="screen" id="s-fluege">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-plane"/></svg>Flüge</h2><div class="sub">SWISS / Edelweiss Air</div></div>
       <div class="card">
@@ -240,14 +237,44 @@
         <div class="row"><span class="k">Datum</span><span class="v">Sa 25.07.2026</span></div>
         <div class="row"><span class="k">Route</span><span class="v">CTA 18:40 → ZRH 20:55</span></div>
       </div>
+
       <div class="card">
-        <h3><svg class="ic"><use href="#ic-ticket"/></svg>Online Check-in</h3>
-        <div class="row"><span class="k">Ab</span><span class="v">10. Juli, 16:45</span></div>
-        <div class="row"><span class="k">Wo</span><span class="v"><a class="call" href="https://www.swiss.com" target="_blank">swiss.com</a></span></div>
+        <h3><svg class="ic"><use href="#ic-ticket"/></svg>Check-in &amp; Service</h3>
+        <div class="srv">
+          <a class="srvBtn" href="https://www.swiss.com/ch/en/fly/check-in/online-check-in" target="_blank"><svg class="ic"><use href="#ic-ticket"/></svg><span class="lab">Online Check-in<small>ab 24 Std vor Abflug · swiss.com</small></span><svg class="ic arr"><use href="#ic-arr"/></svg></a>
+          <a class="srvBtn" href="https://www.swiss.com/us/en/book-and-manage/overview-manage" target="_blank"><svg class="ic"><use href="#ic-doc"/></svg><span class="lab">Buchung verwalten<small>Ref. Z94XAB · Jana Z9DCLC</small></span><svg class="ic arr"><use href="#ic-arr"/></svg></a>
+          <a class="srvBtn" href="https://www.swiss.com/us/en/fly/flight-information" target="_blank"><svg class="ic"><use href="#ic-plane"/></svg><span class="lab">Flugstatus<small>LX 8396 / 8398 / 8397</small></span><svg class="ic arr"><use href="#ic-arr"/></svg></a>
+          <a class="srvBtn" href="https://www.sbb.ch" target="_blank"><svg class="ic"><use href="#ic-map"/></svg><span class="lab">Bahn zum Flughafen<small>HB → ZRH Flughafen · ~45 Min.</small></span><svg class="ic arr"><use href="#ic-arr"/></svg></a>
+        </div>
       </div>
+
+      <div class="card">
+        <h3><svg class="ic"><use href="#ic-ticket"/></svg>Schnellzugriff (QR)</h3>
+        <div class="qrRow">
+          <div class="qrBox"><svg viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect width="37" height="37" fill="#fff"/><path fill="#0d3b42" d="M2 2h7v1h-7zM12 2h2v1h-2zM15 2h1v1h-1zM18 2h4v1h-4zM24 2h2v1h-2zM28 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM14 3h4v1h-4zM19 3h2v1h-2zM22 3h2v1h-2zM28 3h1v1h-1zM34 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h2v1h-2zM15 4h1v1h-1zM18 4h1v1h-1zM22 4h5v1h-5zM28 4h1v1h-1zM30 4h3v1h-3zM34 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM10 5h2v1h-2zM14 5h1v1h-1zM16 5h6v1h-6zM24 5h1v1h-1zM26 5h1v1h-1zM28 5h1v1h-1zM30 5h3v1h-3zM34 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM10 6h2v1h-2zM15 6h1v1h-1zM17 6h1v1h-1zM19 6h5v1h-5zM25 6h1v1h-1zM28 6h1v1h-1zM30 6h3v1h-3zM34 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h3v1h-3zM16 7h4v1h-4zM22 7h1v1h-1zM24 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM34 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h7v1h-7zM10 9h1v1h-1zM14 9h1v1h-1zM17 9h1v1h-1zM21 9h1v1h-1zM23 9h2v1h-2zM2 10h1v1h-1zM4 10h5v1h-5zM12 10h2v1h-2zM15 10h3v1h-3zM19 10h1v1h-1zM24 10h2v1h-2zM28 10h5v1h-5zM3 11h3v1h-3zM7 11h1v1h-1zM9 11h3v1h-3zM13 11h1v1h-1zM16 11h1v1h-1zM18 11h5v1h-5zM25 11h1v1h-1zM28 11h2v1h-2zM31 11h2v1h-2zM34 11h1v1h-1zM2 12h1v1h-1zM4 12h3v1h-3zM8 12h2v1h-2zM11 12h1v1h-1zM14 12h1v1h-1zM17 12h2v1h-2zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM32 12h2v1h-2zM3 13h5v1h-5zM11 13h1v1h-1zM13 13h2v1h-2zM16 13h1v1h-1zM18 13h1v1h-1zM21 13h3v1h-3zM25 13h1v1h-1zM27 13h1v1h-1zM30 13h5v1h-5zM2 14h2v1h-2zM6 14h4v1h-4zM13 14h1v1h-1zM19 14h1v1h-1zM21 14h1v1h-1zM24 14h4v1h-4zM29 14h3v1h-3zM3 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM10 15h3v1h-3zM14 15h1v1h-1zM16 15h3v1h-3zM20 15h3v1h-3zM25 15h1v1h-1zM28 15h1v1h-1zM33 15h2v1h-2zM2 16h2v1h-2zM5 16h2v1h-2zM8 16h1v1h-1zM10 16h3v1h-3zM14 16h1v1h-1zM19 16h2v1h-2zM22 16h2v1h-2zM26 16h3v1h-3zM32 16h2v1h-2zM5 17h3v1h-3zM9 17h1v1h-1zM12 17h2v1h-2zM15 17h2v1h-2zM18 17h1v1h-1zM22 17h4v1h-4zM27 17h2v1h-2zM30 17h3v1h-3zM6 18h1v1h-1zM8 18h1v1h-1zM13 18h1v1h-1zM19 18h1v1h-1zM24 18h4v1h-4zM29 18h2v1h-2zM34 18h1v1h-1zM2 19h2v1h-2zM5 19h1v1h-1zM7 19h1v1h-1zM9 19h4v1h-4zM15 19h1v1h-1zM19 19h11v1h-11zM31 19h2v1h-2zM34 19h1v1h-1zM2 20h1v1h-1zM4 20h3v1h-3zM8 20h3v1h-3zM14 20h4v1h-4zM20 20h1v1h-1zM22 20h3v1h-3zM27 20h4v1h-4zM32 20h2v1h-2zM3 21h1v1h-1zM5 21h1v1h-1zM13 21h3v1h-3zM18 21h1v1h-1zM21 21h1v1h-1zM23 21h3v1h-3zM28 21h7v1h-7zM4 22h2v1h-2zM7 22h3v1h-3zM11 22h1v1h-1zM13 22h1v1h-1zM15 22h1v1h-1zM18 22h2v1h-2zM26 22h1v1h-1zM29 22h3v1h-3zM33 22h2v1h-2zM2 23h3v1h-3zM6 23h2v1h-2zM10 23h1v1h-1zM14 23h1v1h-1zM16 23h2v1h-2zM19 23h5v1h-5zM25 23h1v1h-1zM28 23h2v1h-2zM31 23h2v1h-2zM34 23h1v1h-1zM2 24h1v1h-1zM4 24h1v1h-1zM8 24h2v1h-2zM11 24h1v1h-1zM14 24h2v1h-2zM17 24h2v1h-2zM20 24h1v1h-1zM27 24h1v1h-1zM30 24h4v1h-4zM2 25h1v1h-1zM4 25h2v1h-2zM7 25h1v1h-1zM10 25h1v1h-1zM17 25h1v1h-1zM20 25h1v1h-1zM23 25h3v1h-3zM27 25h6v1h-6zM2 26h1v1h-1zM4 26h2v1h-2zM7 26h3v1h-3zM14 26h1v1h-1zM16 26h2v1h-2zM19 26h3v1h-3zM24 26h7v1h-7zM34 26h1v1h-1zM10 27h1v1h-1zM12 27h5v1h-5zM18 27h5v1h-5zM24 27h3v1h-3zM30 27h1v1h-1zM32 27h1v1h-1zM34 27h1v1h-1zM2 28h7v1h-7zM11 28h1v1h-1zM13 28h1v1h-1zM15 28h5v1h-5zM23 28h4v1h-4zM28 28h1v1h-1zM30 28h1v1h-1zM32 28h1v1h-1zM2 29h1v1h-1zM8 29h1v1h-1zM10 29h1v1h-1zM12 29h3v1h-3zM16 29h3v1h-3zM20 29h7v1h-7zM30 29h4v1h-4zM2 30h1v1h-1zM4 30h3v1h-3zM8 30h1v1h-1zM10 30h3v1h-3zM14 30h2v1h-2zM17 30h1v1h-1zM20 30h2v1h-2zM24 30h1v1h-1zM26 30h6v1h-6zM34 30h1v1h-1zM2 31h1v1h-1zM4 31h3v1h-3zM8 31h1v1h-1zM10 31h1v1h-1zM13 31h1v1h-1zM15 31h1v1h-1zM17 31h7v1h-7zM25 31h1v1h-1zM27 31h1v1h-1zM30 31h1v1h-1zM32 31h3v1h-3zM2 32h1v1h-1zM4 32h3v1h-3zM8 32h1v1h-1zM10 32h3v1h-3zM16 32h1v1h-1zM19 32h1v1h-1zM22 32h1v1h-1zM25 32h5v1h-5zM31 32h1v1h-1zM2 33h1v1h-1zM8 33h1v1h-1zM12 33h3v1h-3zM18 33h1v1h-1zM21 33h1v1h-1zM23 33h2v1h-2zM27 33h2v1h-2zM30 33h3v1h-3zM2 34h7v1h-7zM10 34h2v1h-2zM13 34h1v1h-1zM15 34h2v1h-2zM19 34h1v1h-1zM25 34h5v1h-5zM33 34h1v1h-1z"/></svg><span>Online Check-in</span></div>
+          <div class="qrBox"><svg viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect width="37" height="37" fill="#fff"/><path fill="#0d3b42" d="M2 2h7v1h-7zM10 2h1v1h-1zM12 2h2v1h-2zM18 2h4v1h-4zM24 2h2v1h-2zM28 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM10 3h2v1h-2zM13 3h1v1h-1zM16 3h1v1h-1zM19 3h2v1h-2zM23 3h4v1h-4zM28 3h1v1h-1zM34 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM12 4h1v1h-1zM14 4h5v1h-5zM20 4h3v1h-3zM25 4h1v1h-1zM28 4h1v1h-1zM30 4h3v1h-3zM34 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM10 5h3v1h-3zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h1v1h-1zM21 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM28 5h1v1h-1zM30 5h3v1h-3zM34 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM12 6h2v1h-2zM15 6h1v1h-1zM18 6h1v1h-1zM21 6h2v1h-2zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h3v1h-3zM34 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM13 7h1v1h-1zM16 7h8v1h-8zM26 7h1v1h-1zM28 7h1v1h-1zM34 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h7v1h-7zM10 9h2v1h-2zM17 9h5v1h-5zM24 9h1v1h-1zM26 9h1v1h-1zM2 10h1v1h-1zM4 10h2v1h-2zM7 10h3v1h-3zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h6v1h-6zM23 10h1v1h-1zM25 10h2v1h-2zM28 10h1v1h-1zM31 10h1v1h-1zM33 10h2v1h-2zM3 11h5v1h-5zM10 11h3v1h-3zM15 11h1v1h-1zM18 11h2v1h-2zM21 11h3v1h-3zM25 11h1v1h-1zM28 11h2v1h-2zM31 11h2v1h-2zM34 11h1v1h-1zM3 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM15 12h1v1h-1zM18 12h3v1h-3zM23 12h3v1h-3zM28 12h4v1h-4zM33 12h2v1h-2zM2 13h2v1h-2zM5 13h3v1h-3zM17 13h1v1h-1zM20 13h1v1h-1zM22 13h1v1h-1zM24 13h3v1h-3zM29 13h1v1h-1zM31 13h1v1h-1zM2 14h1v1h-1zM4 14h2v1h-2zM8 14h1v1h-1zM10 14h1v1h-1zM16 14h1v1h-1zM19 14h1v1h-1zM21 14h2v1h-2zM24 14h4v1h-4zM29 14h3v1h-3zM33 14h2v1h-2zM3 15h1v1h-1zM6 15h1v1h-1zM9 15h2v1h-2zM12 15h2v1h-2zM15 15h2v1h-2zM19 15h1v1h-1zM21 15h1v1h-1zM23 15h1v1h-1zM29 15h1v1h-1zM31 15h1v1h-1zM33 15h1v1h-1zM2 16h1v1h-1zM4 16h3v1h-3zM8 16h1v1h-1zM12 16h1v1h-1zM20 16h3v1h-3zM24 16h1v1h-1zM26 16h1v1h-1zM28 16h4v1h-4zM2 17h5v1h-5zM9 17h1v1h-1zM14 17h2v1h-2zM17 17h2v1h-2zM22 17h3v1h-3zM27 17h2v1h-2zM30 17h3v1h-3zM4 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM12 18h2v1h-2zM15 18h2v1h-2zM20 18h1v1h-1zM22 18h4v1h-4zM27 18h2v1h-2zM30 18h3v1h-3zM3 19h5v1h-5zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h3v1h-3zM20 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM28 19h1v1h-1zM30 19h2v1h-2zM33 19h2v1h-2zM2 20h2v1h-2zM6 20h6v1h-6zM13 20h1v1h-1zM15 20h1v1h-1zM17 20h1v1h-1zM20 20h1v1h-1zM22 20h3v1h-3zM27 20h4v1h-4zM32 20h1v1h-1zM2 21h4v1h-4zM10 21h1v1h-1zM12 21h1v1h-1zM15 21h1v1h-1zM17 21h6v1h-6zM24 21h1v1h-1zM26 21h1v1h-1zM30 21h1v1h-1zM33 21h1v1h-1zM2 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h3v1h-3zM16 22h6v1h-6zM23 22h1v1h-1zM31 22h4v1h-4zM2 23h1v1h-1zM4 23h1v1h-1zM6 23h2v1h-2zM12 23h2v1h-2zM16 23h1v1h-1zM18 23h1v1h-1zM20 23h6v1h-6zM28 23h1v1h-1zM31 23h1v1h-1zM34 23h1v1h-1zM4 24h1v1h-1zM8 24h1v1h-1zM10 24h1v1h-1zM12 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM23 24h1v1h-1zM25 24h5v1h-5zM31 24h4v1h-4zM3 25h1v1h-1zM7 25h1v1h-1zM9 25h1v1h-1zM11 25h2v1h-2zM16 25h2v1h-2zM20 25h2v1h-2zM25 25h2v1h-2zM28 25h2v1h-2zM31 25h1v1h-1zM34 25h1v1h-1zM2 26h1v1h-1zM6 26h3v1h-3zM10 26h2v1h-2zM13 26h2v1h-2zM16 26h2v1h-2zM19 26h3v1h-3zM24 26h1v1h-1zM26 26h5v1h-5zM34 26h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM14 27h5v1h-5zM21 27h1v1h-1zM24 27h1v1h-1zM26 27h1v1h-1zM30 27h2v1h-2zM2 28h7v1h-7zM10 28h7v1h-7zM19 28h3v1h-3zM23 28h4v1h-4zM28 28h1v1h-1zM30 28h1v1h-1zM2 29h1v1h-1zM8 29h1v1h-1zM10 29h1v1h-1zM12 29h3v1h-3zM17 29h2v1h-2zM20 29h4v1h-4zM25 29h2v1h-2zM30 29h5v1h-5zM2 30h1v1h-1zM4 30h3v1h-3zM8 30h1v1h-1zM11 30h1v1h-1zM14 30h1v1h-1zM16 30h1v1h-1zM20 30h11v1h-11zM32 30h2v1h-2zM2 31h1v1h-1zM4 31h3v1h-3zM8 31h1v1h-1zM10 31h2v1h-2zM14 31h2v1h-2zM17 31h1v1h-1zM19 31h1v1h-1zM22 31h1v1h-1zM25 31h2v1h-2zM29 31h1v1h-1zM31 31h1v1h-1zM34 31h1v1h-1zM2 32h1v1h-1zM4 32h3v1h-3zM8 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h2v1h-2zM17 32h3v1h-3zM25 32h5v1h-5zM32 32h1v1h-1zM2 33h1v1h-1zM8 33h1v1h-1zM16 33h1v1h-1zM19 33h3v1h-3zM24 33h3v1h-3zM28 33h4v1h-4zM34 33h1v1h-1zM2 34h7v1h-7zM10 34h2v1h-2zM13 34h2v1h-2zM18 34h4v1h-4zM23 34h3v1h-3zM30 34h1v1h-1zM32 34h1v1h-1z"/></svg><span>Buchung verwalten</span></div>
+        </div>
+        <p class="sectTip" style="margin-left:0;margin-right:0">Mit der Handy-Kamera scannen → öffnet SWISS direkt. Der offizielle Boarding-Pass (mit Barcode) kommt nach dem Check-in in die SWISS-App / Wallet.</p>
+      </div>
+
+      <div class="card">
+        <h3><svg class="ic"><use href="#ic-check"/></svg>Gepäck</h3>
+        <div class="row"><span class="k">Handgepäck</span><span class="v">8 kg · 55×40×23 cm + persönl. Gegenstand</span></div>
+        <div class="row"><span class="k">Aufgabegepäck</span><span class="v">je nach Tarif – im Check-in prüfen</span></div>
+        <div class="row"><span class="k">Details</span><span class="v"><a class="call" href="https://www.swiss.com/us/en/fly/baggage" target="_blank">swiss.com/baggage</a></span></div>
+      </div>
+
+      <div class="emHead">E-Tickets</div>
+      <div class="acc">
+        <div class="accItem"><button class="accBtn">Jost Landtwing<svg class="ic"><use href="#ic-arr"/></svg></button><div class="accBody"><img class="ticketImg" loading="lazy" alt="Jost – E-Ticket Seite 1" src="tickets/jost1.jpg"><img class="ticketImg" loading="lazy" alt="Jost – E-Ticket Seite 2" src="tickets/jost2.jpg"></div></div>
+        <div class="accItem"><button class="accBtn">Susanne Landtwing<svg class="ic"><use href="#ic-arr"/></svg></button><div class="accBody"><img class="ticketImg" loading="lazy" alt="Susanne – E-Ticket Seite 1" src="tickets/susanne1.jpg"><img class="ticketImg" loading="lazy" alt="Susanne – E-Ticket Seite 2" src="tickets/susanne2.jpg"></div></div>
+        <div class="accItem"><button class="accBtn">Remo Landtwing<svg class="ic"><use href="#ic-arr"/></svg></button><div class="accBody"><img class="ticketImg" loading="lazy" alt="Remo – E-Ticket Seite 1" src="tickets/remo1.jpg"><img class="ticketImg" loading="lazy" alt="Remo – E-Ticket Seite 2" src="tickets/remo2.jpg"></div></div>
+        <div class="accItem"><button class="accBtn">Livia Landtwing<svg class="ic"><use href="#ic-arr"/></svg></button><div class="accBody"><img class="ticketImg" loading="lazy" alt="Livia – E-Ticket Seite 1" src="tickets/livia1.jpg"><img class="ticketImg" loading="lazy" alt="Livia – E-Ticket Seite 2" src="tickets/livia2.jpg"></div></div>
+        <div class="accItem"><button class="accBtn">Jana Landtwing<svg class="ic"><use href="#ic-arr"/></svg></button><div class="accBody"><img class="ticketImg" loading="lazy" alt="Jana – E-Ticket Seite 1" src="tickets/jana1.jpg"><img class="ticketImg" loading="lazy" alt="Jana – E-Ticket Seite 2" src="tickets/jana2.jpg"></div></div>
+      </div>
+      <div class="footer">E-Tickets antippen zum Aufklappen. Offline-Komplettversion: Sizilien_2026_Landtwing.pdf (im Ordner). Offizieller Boarding-Pass nach Check-in in der SWISS-App.</div>
     </section>
 
-    <!-- VILLA -->
     <section class="screen" id="s-villa">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-villa"/></svg>Villa del Mito</h2><div class="sub">Siracusa</div></div>
       <div class="gallery">
@@ -283,7 +310,6 @@
       </a>
     </section>
 
-    <!-- AUTO -->
     <section class="screen" id="s-auto">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-car"/></svg>Mietwagen</h2><div class="sub">Sixt · Flughafen Catania</div></div>
       <div class="card">
@@ -304,10 +330,8 @@
       </div>
     </section>
 
-    <!-- AUSFLÜGE -->
     <section class="screen" id="s-ausfluege">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-map"/></svg>Ausflüge</h2><div class="sub">Die schönsten Ziele rund um Siracusa</div></div>
-
       <div class="card">
         <div class="banner" style="background:#aee3e8"><img loading="lazy" alt="Ortigia – Dom von Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ortigia,_duomo,_facciata_01.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Ortigia</h3>
@@ -315,7 +339,6 @@
         <div class="meta"><span class="tag">im Zentrum · 5 Min</span><span class="tag">Altstadt</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Ortigia,+Siracusa" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#f6d9a8"><img loading="lazy" alt="Griechisches Theater Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Teatro_greco_di_Siracusa.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Parco Neapolis</h3>
@@ -323,7 +346,6 @@
         <div class="meta"><span class="tag">10 Min</span><span class="tag">8:30–19:40 Uhr</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Parco+Archeologico+della+Neapolis+Siracusa" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a><a class="lnk alt" href="https://parchiarcheologici.regione.sicilia.it/siracusa-eloro-villa-tellaro-akrai/en/biglietti/area-archeologica-della-neapolis/" target="_blank"><svg class="ic"><use href="#ic-ticket"/></svg>Tickets</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#fbe7bd"><img loading="lazy" alt="Kathedrale von Noto" src="https://commons.wikimedia.org/wiki/Special:FilePath/La_cattedrale_di_Noto_restaurata.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Noto</h3>
@@ -331,7 +353,6 @@
         <div class="meta"><span class="tag">~40 Min</span><span class="tag">UNESCO</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Noto,+Sicilia" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#ffd9a0"><img loading="lazy" alt="Marzamemi Piazzetta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Marzamemi_Piazzetta.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Marzamemi</h3>
@@ -339,7 +360,6 @@
         <div class="meta"><span class="tag">~50 Min</span><span class="tag">Fischerdorf</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Marzamemi" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#bdeaf2"><img loading="lazy" alt="Cala Mosche – Vendicari" src="https://commons.wikimedia.org/wiki/Special:FilePath/Calamosche_(Riserva_di_Vendicari)_-_panoramio.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Vendicari &amp; Cala Mosche</h3>
@@ -347,7 +367,6 @@
         <div class="meta"><span class="tag">~45 Min</span><span class="tag">Strand &amp; Natur</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Riserva+Naturale+Vendicari" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#3a4a66"><img loading="lazy" alt="Ätna" src="https://commons.wikimedia.org/wiki/Special:FilePath/Etna_06.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Ätna</h3>
@@ -355,7 +374,6 @@
         <div class="meta"><span class="tag">~1 h 45</span><span class="tag star">Tagestour</span></div>
         <div class="links"><a class="lnk book" href="https://www.getyourguide.com/etna-l2285/" target="_blank"><svg class="ic"><use href="#ic-ticket"/></svg>Tour buchen</a><a class="lnk alt" href="https://maps.apple.com/?q=Etna" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#cfe8b6"><img loading="lazy" alt="Cavagrande del Cassibile" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avola_antica_-_Cavagrande_del_Cassibile.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-map"/></svg>Cavagrande del Cassibile</h3>
@@ -363,7 +381,6 @@
         <div class="meta"><span class="tag">~40 Min</span><span class="tag">Wandern &amp; Baden</span></div>
         <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Cavagrande+del+Cassibile" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#a9e6ee"><img loading="lazy" alt="Plemmirio / Pillirina Küste" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alba_alla_Pillirina.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-boat"/></svg>Bootsvermietung &amp; -touren</h3>
@@ -374,10 +391,8 @@
       <div class="footer">Fahrzeiten ab Siracusa, ungefähr. Karten öffnen in Apple/Google Maps.</div>
     </section>
 
-    <!-- ESSEN -->
     <section class="screen" id="s-essen">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-food"/></svg>Essen</h2><div class="sub">Restaurants in Ortigia · min. 2 Wochen vorher reservieren</div></div>
-
       <div class="card">
         <div class="banner" style="background:#3b4a4a"><img loading="lazy" alt="Sizilianische Caponata" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sicilian_caponata.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-star"/></svg>Cortile Spirito Santo</h3>
@@ -385,7 +400,6 @@
         <div class="meta"><span class="tag star">★ Michelin</span><span class="tag">Fine Dining</span></div>
         <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/cortile-spirito-santo-r651447" target="_blank"><svg class="ic"><use href="#ic-food"/></svg>Reservieren</a><a class="lnk alt" href="tel:+390931815404"><svg class="ic"><use href="#ic-phone"/></svg>Anrufen</a></div>
       </div>
-
       <div class="card">
         <div class="banner" style="background:#f3e9d6"><img loading="lazy" alt="Sizilianische Pasta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_Puttanesca.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-food"/></svg>Don Camillo</h3>
@@ -393,9 +407,8 @@
         <div class="meta"><span class="tag">Fisch &amp; Wein</span><span class="tag">Ortigia</span></div>
         <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/don-camillo-r755389" target="_blank"><svg class="ic"><use href="#ic-food"/></svg>Reservieren</a></div>
       </div>
-
       <div class="card">
-        <div class="banner" style="background:#ffe1a6"><img loading="lazy" alt="Frutta di Martorana – sizilianisches Marzipan" src="https://commons.wikimedia.org/wiki/Special:FilePath/Frutta_di_martorana.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <div class="banner" style="background:#ffe1a6"><img loading="lazy" alt="Frutta di Martorana" src="https://commons.wikimedia.org/wiki/Special:FilePath/Frutta_di_martorana.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
         <h3><svg class="ic"><use href="#ic-food"/></svg>La Terrazza</h3>
         <p class="desc">Mediterrane Küche mit Terrassen-Atmosphäre – schön für einen entspannten Abend mit Aussicht. Tisch am besten vorab über TheFork oder telefonisch sichern.</p>
         <div class="meta"><span class="tag">Terrasse</span><span class="tag">Mediterran</span></div>
@@ -405,7 +418,6 @@
       <div class="footer"></div>
     </section>
 
-    <!-- TO-DO -->
     <section class="screen" id="s-todo">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-check"/></svg>To-do vor der Reise</h2><div class="sub">Antippen zum Abhaken</div></div>
       <div class="prog"><i id="progBar"></i></div>
@@ -414,9 +426,9 @@
         <ul class="todo" id="todoList">
           <li data-id="zug"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Zugticket ZRH Flughafen lösen<small>SBB App · HB → ZRH · ~45 Min.</small></span></li>
           <li data-id="schluessel"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Schlüsselübergabe mit Nunzio koordinieren<small>einige Tage vor 11. Juli</small></span></li>
-          <li data-id="resto"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Restaurants reservieren<small>Cortile Spirito Santo ★ · Don Camillo · La Terrazza (thefork.it, min. 2 Wochen vorher)</small></span></li>
+          <li data-id="resto"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Restaurants reservieren<small>Cortile Spirito Santo ★ · Don Camillo · La Terrazza (min. 2 Wochen vorher)</small></span></li>
           <li data-id="aetna"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Ätna-Tour buchen<small>Viator / GetYourGuide · Hochsaison → jetzt!</small></span></li>
-          <li data-id="checkin"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Online Check-in SWISS<small>10. Juli ab 16:45 · swiss.com</small></span></li>
+          <li data-id="checkin"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Online Check-in SWISS<small>ab 24 Std vor Abflug · swiss.com</small></span></li>
           <li data-id="bargeld"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Bargeld besorgen<small>€ 500 Kaution + € 350 Kurtaxe (bar) + Sixt € 300 (Karte)</small></span></li>
           <li data-id="paesse"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Pässe gültig prüfen + Führerschein Jost<small>für alle 5 Personen</small></span></li>
         </ul>
@@ -424,20 +436,15 @@
       <button class="resetBtn" id="resetTodo">Alle zurücksetzen</button>
     </section>
 
-    <!-- NOTFALL -->
     <section class="screen" id="s-notfall">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-aid"/></svg>Notfall &amp; Kontakte</h2><div class="sub">Im Ernstfall griffbereit</div></div>
-
       <div class="emHead">Notruf Italien</div>
       <a class="em" href="tel:112"><span class="e warm"><svg class="ic"><use href="#ic-aid"/></svg></span><span class="info"><b>Allgemeiner Notruf</b><span>Polizei · Feuerwehr · Rettung (EU)</span></span><span class="num">112</span></a>
       <a class="em" href="tel:118"><span class="e warm"><svg class="ic"><use href="#ic-aid"/></svg></span><span class="info"><b>Rettungsdienst</b><span>Medizinischer Notfall</span></span><span class="num">118</span></a>
-
       <div class="emHead">TCS ETI Schutzbrief</div>
       <a class="em" href="tel:+41588272220"><span class="e"><svg class="ic"><use href="#ic-phone"/></svg></span><span class="info"><b>24h Notfall TCS</b><span>Welt Plus Familie · Ref. 011.403.076 · gültig bis 12.04.2027</span></span><span class="num">+41 58 827 22 20</span></a>
-
       <div class="emHead">TCS Verkehrsrechtsschutz</div>
       <a class="em" href="tel:+41588277777"><span class="e"><svg class="ic"><use href="#ic-phone"/></svg></span><span class="info"><b>Assista Rechtsschutz</b><span>Police PO011403076-10700/02 · gültig bis 30.01.2027</span></span><span class="num">058 827 77 77</span></a>
-
       <div class="emHead">Vor Ort</div>
       <a class="em" href="tel:+390941361681"><span class="e"><svg class="ic"><use href="#ic-villa"/></svg></span><span class="info"><b>Nunzio Carianni (Villa)</b><span>Vermieter / Schlüssel</span></span><span class="num">+39 0941 361681</span></a>
       <div class="footer">SWISS Service-Center und Sixt-Pannenhilfe-Nummern stehen auf den jeweiligen Buchungsbestätigungen.</div>
@@ -460,19 +467,19 @@
 <script>
 (function(){
   function go(name){
-    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
     var sc=document.getElementById('s-'+name); if(sc){ sc.classList.add('active'); sc.scrollTop=0; }
     var tb=document.querySelector('.tab[data-tab="'+name+'"]'); if(tb) tb.classList.add('active');
   }
-  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>go(t.dataset.tab)));
-  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();go(b.dataset.go);}));
+  document.querySelectorAll('.tab').forEach(function(t){ t.addEventListener('click',function(){ go(t.dataset.tab); }); });
+  document.querySelectorAll('[data-go]').forEach(function(b){ b.addEventListener('click',function(e){ e.preventDefault(); go(b.dataset.go); }); });
+  document.querySelectorAll('.accBtn').forEach(function(b){ b.addEventListener('click',function(){ b.parentNode.classList.toggle('open'); }); });
 
   var target=new Date('2026-07-11T15:45:00+02:00').getTime();
   function tick(){
     var now=Date.now(), diff=target-now;
-    var dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m');
-    var note=document.getElementById('cdNote');
+    var dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),note=document.getElementById('cdNote');
     if(diff<=0){
       var back=new Date('2026-07-25T20:55:00+02:00').getTime();
       if(now<back){ dEl.textContent='☀'; hEl.textContent='in'; mEl.textContent='Sizilien'; note.textContent='Geniesst die Ferien!'; }
@@ -485,18 +492,13 @@
   }
   tick(); setInterval(tick,1000*30);
 
-  var KEY='sizilien2026_todo';
-  var state={}; try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  var KEY='sizilien2026_todo', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
   var items=document.querySelectorAll('#todoList li');
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
   function render(){
     var done=0;
-    items.forEach(function(li){
-      var id=li.dataset.id, on=!!state[id];
-      li.classList.toggle('done',on);
-      li.querySelector('.chk').classList.toggle('done',on);
-      if(on) done++;
-    });
+    items.forEach(function(li){ var id=li.dataset.id, on=!!state[id]; li.classList.toggle('done',on); li.querySelector('.chk').classList.toggle('done',on); if(on) done++; });
     var total=items.length, pct=total?Math.round(done/total*100):0;
     document.getElementById('progBar').style.width=pct+'%';
     document.getElementById('progTxt').textContent=done+' von '+total+' erledigt';
@@ -507,7 +509,6 @@
   document.getElementById('resetTodo').addEventListener('click',function(){ state={}; save(); render(); });
   render();
 
-  // Wetter (Open-Meteo, kein Schlüssel)
   function wmo(c){
     if(c===0) return ['Klar','ic-sun'];
     if(c<=2) return ['Heiter','ic-suncloud'];
@@ -520,25 +521,15 @@
     return ['Wechselhaft','ic-suncloud'];
   }
   function dayName(iso){ return ['So','Mo','Di','Mi','Do','Fr','Sa'][new Date(iso).getDay()]; }
-  var url='https://api.open-meteo.com/v1/forecast?latitude=37.07&longitude=15.29&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=4';
-  fetch(url).then(function(r){ return r.json(); }).then(function(d){
-    var cur=d.current, dy=d.daily, ci=wmo(cur.weather_code);
-    var h='<div class="wx"><svg class="wxIcon"><use href="#'+ci[1]+'"/></svg>'+
-      '<div><div class="wxTemp">'+Math.round(cur.temperature_2m)+'°</div>'+
-      '<div class="wxCond">'+ci[0]+' · jetzt in Siracusa</div></div></div>';
-    h+='<div class="wxDays">';
-    for(var i=0;i<dy.time.length;i++){
-      var di=wmo(dy.weather_code[i]);
-      h+='<div class="wxDay"><div class="d">'+(i===0?'Heute':dayName(dy.time[i]))+'</div>'+
-        '<svg class="wi"><use href="#'+di[1]+'"/></svg>'+
-        '<div class="mx">'+Math.round(dy.temperature_2m_max[i])+'°</div>'+
-        '<div class="mn">'+Math.round(dy.temperature_2m_min[i])+'°</div></div>';
-    }
-    h+='</div>';
-    document.getElementById('wxBody').innerHTML=h;
-  }).catch(function(){
-    document.getElementById('wxBody').innerHTML='<div class="wxErr">Wetter offline nicht verfügbar – bei Internetverbindung erscheint es hier automatisch.</div>';
-  });
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=37.07&longitude=15.29&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=4')
+    .then(function(r){ return r.json(); }).then(function(d){
+      var cur=d.current, dy=d.daily, ci=wmo(cur.weather_code);
+      var h='<div class="wx"><svg class="wxIcon"><use href="#'+ci[1]+'"/></svg><div><div class="wxTemp">'+Math.round(cur.temperature_2m)+'°</div><div class="wxCond">'+ci[0]+' · jetzt in Siracusa</div></div></div><div class="wxDays">';
+      for(var i=0;i<dy.time.length;i++){ var di=wmo(dy.weather_code[i]);
+        h+='<div class="wxDay"><div class="d">'+(i===0?'Heute':dayName(dy.time[i]))+'</div><svg class="wi"><use href="#'+di[1]+'"/></svg><div class="mx">'+Math.round(dy.temperature_2m_max[i])+'°</div><div class="mn">'+Math.round(dy.temperature_2m_min[i])+'°</div></div>'; }
+      h+='</div>';
+      document.getElementById('wxBody').innerHTML=h;
+    }).catch(function(){ document.getElementById('wxBody').innerHTML='<div class="wxErr">Wetter offline nicht verfügbar – bei Internetverbindung erscheint es hier automatisch.</div>'; });
 })();
 </script>
 </body>
