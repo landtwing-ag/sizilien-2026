@@ -7,15 +7,16 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Sizilien 2026">
-<meta name="theme-color" content="#1f6f6f">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231f6f6f'/%3E%3Ctext x='90' y='118' font-size='90' text-anchor='middle'%3E%F0%9F%8C%8A%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1ca4b8">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231ca4b8'/%3E%3Ccircle cx='90' cy='74' r='30' fill='%23f5d547'/%3E%3Cpath d='M20 120 q22 -16 45 0 t45 0 t45 0 v30 H20Z' fill='%23bfeaf0'/%3E%3C/svg%3E">
 <title>Sizilien 2026</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   :root{
-    --teal:#1f6f6f; --teal-d:#155252; --sand:#f5efe2; --terr:#c2603a;
-    --ink:#243234; --muted:#6b7b7b; --line:#dfd8c8; --card:#ffffff;
-    --gold:#d9a441; --ok:#2e8b57;
+    --teal:#1ca4b8; --teal-d:#0e7c8c; --sea:#6fd3de; --sand:#f2fbfb;
+    --lemon:#f5d547; --lemon-d:#c9a21a; --lemon-bg:#fdf3cc;
+    --ink:#1f3a40; --muted:#6e898f; --line:#d7e9ec; --card:#ffffff;
+    --tint:#e3f6f8; --ok:#2e8b57;
   }
   html,body{ height:100%; }
   body{
@@ -28,114 +29,147 @@
     padding:0 0 calc(96px + env(safe-area-inset-bottom)); display:none; }
   .screen.active{ display:block; }
 
-  /* Header */
+  .ic{ width:1.15em; height:1.15em; display:inline-block; vertical-align:-0.18em; stroke:currentColor; fill:none; flex-shrink:0; }
+
   .hero{ background:linear-gradient(160deg,var(--teal),var(--teal-d)); color:#fff;
     padding:calc(env(safe-area-inset-top) + 22px) 20px 22px; position:relative; overflow:hidden; }
-  .hero h1{ font-size:24px; font-weight:800; letter-spacing:.3px; }
-  .hero .sub{ opacity:.85; font-size:13px; margin-top:3px; }
-  .hero .wave{ position:absolute; right:-10px; bottom:-22px; font-size:120px; opacity:.12; }
+  .hero h1{ font-size:24px; font-weight:800; letter-spacing:.3px; display:flex; align-items:center; gap:9px; }
+  .hero h1 .ic{ width:24px; height:24px; color:var(--lemon); }
+  .hero .sub{ opacity:.9; font-size:13px; margin-top:3px; }
+  .hero .deco{ position:absolute; right:-14px; top:-18px; width:120px; height:120px; opacity:.16; color:#fff; }
   .pageHead{ background:linear-gradient(160deg,var(--teal),var(--teal-d)); color:#fff;
     padding:calc(env(safe-area-inset-top) + 20px) 20px 18px; }
-  .pageHead h2{ font-size:21px; font-weight:800; }
-  .pageHead .sub{ opacity:.85; font-size:13px; margin-top:2px; }
+  .pageHead h2{ font-size:21px; font-weight:800; display:flex; align-items:center; gap:9px; }
+  .pageHead h2 .ic{ width:22px; height:22px; }
+  .pageHead .sub{ opacity:.9; font-size:13px; margin-top:2px; }
 
-  .wrap{ padding:16px; }
-
-  /* Countdown */
   .countdown{ display:flex; gap:8px; margin:16px 16px 4px; }
   .cd{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:12px 6px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.04); }
-  .cd b{ display:block; font-size:26px; font-weight:800; color:var(--teal); line-height:1; }
+    padding:12px 6px; text-align:center; box-shadow:0 2px 8px rgba(14,124,140,.06); }
+  .cd b{ display:block; font-size:26px; font-weight:800; color:var(--teal-d); line-height:1; }
   .cd span{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
   .cdNote{ text-align:center; color:var(--muted); font-size:13px; margin:10px 16px 4px; }
 
   .card{ background:var(--card); border:1px solid var(--line); border-radius:16px;
-    padding:16px; margin:14px 16px; box-shadow:0 2px 10px rgba(0,0,0,.04); }
-  .card h3{ font-size:16px; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
-  .card h3 .ic{ font-size:19px; }
+    padding:16px; margin:14px 16px; box-shadow:0 2px 10px rgba(14,124,140,.05); }
+  .card h3{ font-size:16px; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:9px; }
+  .card h3 .ic{ width:20px; height:20px; color:var(--teal); }
   .row{ display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:14px; }
   .row:last-child{ border-bottom:0; }
   .row .k{ color:var(--muted); flex-shrink:0; }
   .row .v{ text-align:right; font-weight:600; }
-  .pill{ display:inline-block; background:#e8f3f0; color:var(--teal-d); font-size:11px; font-weight:700;
-    padding:3px 9px; border-radius:999px; }
+  .pill{ display:inline-block; background:var(--tint); color:var(--teal-d); font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; }
   .pill.ok{ background:#e3f3ea; color:var(--ok); }
-  .pill.warn{ background:#fbeede; color:#b67611; }
-  .big{ font-size:20px; font-weight:800; color:var(--terr); }
+
+  /* Wetter */
+  .wx{ display:flex; align-items:center; gap:14px; }
+  .wxIcon{ width:54px; height:54px; color:var(--lemon-d); flex-shrink:0; }
+  .wxTemp{ font-size:34px; font-weight:800; color:var(--teal-d); line-height:1; }
+  .wxCond{ font-size:13px; color:var(--muted); margin-top:3px; }
+  .wxDays{ display:flex; gap:8px; margin-top:14px; }
+  .wxDay{ flex:1; background:var(--sand); border-radius:12px; padding:9px 4px; text-align:center; }
+  .wxDay .d{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.4px; }
+  .wxDay .wi{ width:26px; height:26px; color:var(--teal); margin:4px auto 2px; }
+  .wxDay .mx{ font-size:13px; font-weight:700; } .wxDay .mn{ font-size:12px; color:var(--muted); }
+  .wxErr{ font-size:13px; color:var(--muted); }
 
   .quick{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 16px; }
-  .qbtn{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px;
-    text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:4px;
-    box-shadow:0 2px 8px rgba(0,0,0,.04); }
-  .qbtn .e{ font-size:22px; } .qbtn .t{ font-weight:700; font-size:14px; }
+  .qbtn{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px;
+    text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:8px;
+    box-shadow:0 2px 8px rgba(14,124,140,.05); }
+  .qbtn .e{ width:34px; height:34px; border-radius:10px; background:var(--tint); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; }
+  .qbtn .e.lemon{ background:var(--lemon-bg); color:var(--lemon-d); }
+  .qbtn .e .ic{ width:20px; height:20px; }
+  .qbtn .t{ font-weight:700; font-size:14px; }
   .qbtn .d{ font-size:12px; color:var(--muted); }
 
   a.call{ color:var(--teal); font-weight:700; text-decoration:none; }
 
-  /* To-do */
   .todo{ list-style:none; }
   .todo li{ display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--line); }
   .todo li:last-child{ border-bottom:0; }
   .chk{ width:26px; height:26px; border-radius:8px; border:2px solid var(--teal); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; cursor:pointer; transition:.15s; }
-  .chk.done{ background:var(--teal); }
+    display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer; transition:.15s; }
+  .chk .ic{ width:16px; height:16px; opacity:0; }
+  .chk.done{ background:var(--teal); } .chk.done .ic{ opacity:1; }
   .todo .txt{ font-size:14px; line-height:1.45; padding-top:2px; }
   .todo .txt small{ display:block; color:var(--muted); font-size:12px; margin-top:2px; }
   .todo li.done .txt{ text-decoration:line-through; color:var(--muted); }
-  .prog{ margin:14px 16px 0; height:9px; background:#e7e0d0; border-radius:999px; overflow:hidden; }
-  .prog>i{ display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--ok)); width:0; transition:width .3s; }
+  .prog{ margin:14px 16px 0; height:9px; background:#dcebed; border-radius:999px; overflow:hidden; }
+  .prog>i{ display:block; height:100%; background:linear-gradient(90deg,var(--teal),var(--lemon)); width:0; transition:width .3s; }
   .progTxt{ text-align:center; font-size:12px; color:var(--muted); margin:8px 16px 0; }
-  .resetBtn{ display:block; margin:18px auto 0; background:none; border:1px solid var(--line);
-    color:var(--muted); padding:8px 16px; border-radius:999px; font-size:13px; }
+  .resetBtn{ display:block; margin:18px auto 0; background:none; border:1px solid var(--line); color:var(--muted); padding:8px 16px; border-radius:999px; font-size:13px; }
 
   .em{ display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line);
     border-radius:16px; padding:14px 16px; margin:14px 16px; text-decoration:none; color:var(--ink);
-    box-shadow:0 2px 10px rgba(0,0,0,.04); }
-  .em .e{ font-size:26px; flex-shrink:0; }
+    box-shadow:0 2px 10px rgba(14,124,140,.05); }
+  .em .e{ width:40px; height:40px; border-radius:12px; background:var(--tint); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .em .e .ic{ width:22px; height:22px; }
+  .em .e.warm{ background:var(--lemon-bg); color:var(--lemon-d); }
   .em .info{ flex:1; } .em .info b{ display:block; font-size:15px; } .em .info span{ font-size:12px; color:var(--muted); }
   .em .num{ color:var(--teal); font-weight:800; font-size:14px; }
-  .emHead{ font-weight:800; font-size:13px; color:var(--terr); text-transform:uppercase; letter-spacing:.6px; margin:18px 16px 2px; }
+  .emHead{ font-weight:800; font-size:13px; color:var(--teal-d); text-transform:uppercase; letter-spacing:.6px; margin:18px 16px 2px; }
 
   .footer{ text-align:center; color:var(--muted); font-size:12px; padding:18px 16px; }
 
-  /* Banners & places */
-  .banner{ margin:-16px -16px 14px; height:150px; overflow:hidden; border-radius:16px 16px 0 0; background:#cfe7e3; position:relative; }
-  .banner svg{ display:block; width:100%; height:100%; }
+  .banner{ margin:-16px -16px 14px; height:150px; overflow:hidden; border-radius:16px 16px 0 0; background:#cfeef2; position:relative; }
   .banner img{ display:block; width:100%; height:100%; object-fit:cover; }
-  .banner .credit{ position:absolute; right:6px; bottom:4px; font-size:9px; color:rgba(255,255,255,.85);
-    background:rgba(0,0,0,.28); padding:1px 6px; border-radius:8px; }
-  .desc{ font-size:13.5px; line-height:1.5; color:#46555a; margin:2px 0 10px; }
+  .banner .credit{ position:absolute; right:6px; bottom:4px; font-size:9px; color:rgba(255,255,255,.85); background:rgba(0,0,0,.28); padding:1px 6px; border-radius:8px; }
+  .desc{ font-size:13.5px; line-height:1.5; color:#3f5b60; margin:2px 0 10px; }
   .meta{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px; }
-  .tag{ background:#eef4f2; color:var(--teal-d); font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; }
-  .tag.star{ background:#fbeede; color:#b67611; }
+  .tag{ background:var(--tint); color:var(--teal-d); font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; }
+  .tag.star{ background:var(--lemon-bg); color:var(--lemon-d); }
   .links{ display:flex; flex-wrap:wrap; gap:8px; }
-  .lnk{ display:inline-flex; align-items:center; gap:6px; background:var(--teal); color:#fff; padding:9px 13px;
-    border-radius:999px; font-size:12.5px; font-weight:700; text-decoration:none; }
-  .lnk.alt{ background:#eef4f2; color:var(--teal-d); }
-  .lnk.book{ background:var(--terr); }
+  .lnk{ display:inline-flex; align-items:center; gap:6px; background:var(--teal); color:#fff; padding:9px 13px; border-radius:999px; font-size:12.5px; font-weight:700; text-decoration:none; }
+  .lnk .ic{ width:15px; height:15px; }
+  .lnk.alt{ background:var(--tint); color:var(--teal-d); }
+  .lnk.book{ background:var(--lemon); color:#6b5a07; }
   .sectTip{ font-size:12.5px; color:var(--muted); margin:2px 16px 0; line-height:1.5; }
 
-  /* Tab bar */
   .tabbar{ flex-shrink:0; height:calc(72px + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom);
-    background:#fff; border-top:1px solid var(--line); display:flex;
-    box-shadow:0 -2px 14px rgba(0,0,0,.06); }
-  .tab{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+    background:#fff; border-top:1px solid var(--line); display:flex; box-shadow:0 -2px 14px rgba(14,124,140,.07); }
+  .tab{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
     border:0; background:none; color:var(--muted); font-size:9px; font-weight:600; cursor:pointer; padding-top:7px; }
-  .tab .ti{ font-size:19px; line-height:1; }
+  .tab .ic{ width:21px; height:21px; }
   .tab.active{ color:var(--teal); }
-  .tab.active .ti{ transform:translateY(-1px); }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-home" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10.5V20h12v-9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="ic-plane" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 13.5 21l-2.5-7-7-2.5L21 4z"/><path d="M21 4 11 14"/></symbol>
+  <symbol id="ic-villa" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/><path d="M3 21h18"/></symbol>
+  <symbol id="ic-car" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.7-4.4A2 2 0 0 1 8.6 7.3h6.8a2 2 0 0 1 1.9 1.3L19 13"/><path d="M4 13h16v4H4z"/><circle cx="7.5" cy="17.5" r="1.4"/><circle cx="16.5" cy="17.5" r="1.4"/></symbol>
+  <symbol id="ic-map" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+  <symbol id="ic-food" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a2 2 0 0 0 4 0V3"/><path d="M8 9v12"/><path d="M16 3c-1.4 1-2 3-2 5s.6 3 2 3v10"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5h10M10 12h10M10 19h10"/><path d="M3.5 5 4.7 6.2 7 4M3.5 12l1.2 1.2L7 11M3.5 19l1.2 1.2L7 18"/></symbol>
+  <symbol id="ic-aid" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 9v6M9 12h6"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></symbol>
+  <symbol id="ic-cash" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.4"/><path d="M6 9.5h.01M18 14.5h.01"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9.5h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l2 5-2.4 1.5a11 11 0 0 0 4.9 4.9L16 12l5 2v3a2 2 0 0 1-2.1 2A15.5 15.5 0 0 1 4 5.1 2 2 0 0 1 6 3z"/></symbol>
+  <symbol id="ic-ticket" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M15 6v12" stroke-dasharray="2 2.4"/></symbol>
+  <symbol id="ic-boat" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15h16l-2.4 4.5H6.4z"/><path d="M12 3.5v9.5M12 3.5l5.5 3.2L12 9"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.3 4.7 5.2.8-3.8 3.6.9 5.1L12 16l-4.6 2.5.9-5.1-3.8-3.6 5.2-.8z"/></symbol>
+  <symbol id="ic-arr" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="ic-cloud" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.4-8 5 5 0 0 1 9.7-1.2A3.5 3.5 0 0 1 17 18z"/></symbol>
+  <symbol id="ic-suncloud" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 2.5v1.5M3.2 8H1.7M12.8 3.2l-1 1M3.2 3.2l1 1"/><path d="M10 19a3.5 3.5 0 0 1-.3-7 4.2 4.2 0 0 1 8 .9A3 3 0 0 1 18 19z"/></symbol>
+  <symbol id="ic-rain" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15a4 4 0 0 1-.4-8 5 5 0 0 1 9.7-1.2A3.5 3.5 0 0 1 17 15z"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></symbol>
+  <symbol id="ic-storm" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14a4 4 0 0 1-.4-8 5 5 0 0 1 9.7-1.2A3.5 3.5 0 0 1 17 14z"/><path d="M12 13l-2 4h3l-2 4"/></symbol>
+</defs></svg>
+
 <div id="app">
   <div class="screens">
 
     <!-- HOME -->
     <section class="screen active" id="s-home">
       <div class="hero">
-        <h1>Sizilien 2026 🌊</h1>
+        <h1>Sizilien 2026 <svg class="ic"><use href="#ic-sun"/></svg></h1>
         <div class="sub">Familie Landtwing · 11.–25. Juli · Siracusa</div>
-        <div class="wave">🏝️</div>
+        <svg class="deco"><use href="#ic-sun"/></svg>
       </div>
 
       <div class="countdown" id="countdown">
@@ -145,17 +179,22 @@
       </div>
       <div class="cdNote" id="cdNote">bis zur Abreise</div>
 
+      <div class="card">
+        <h3><svg class="ic"><use href="#ic-sun"/></svg>Wetter in Siracusa</h3>
+        <div id="wxBody"><div class="wxErr">Wetter wird geladen …</div></div>
+      </div>
+
       <div class="quick">
-        <a class="qbtn" href="#" data-go="fluege"><span class="e">✈️</span><span class="t">Flüge</span><span class="d">Hin & Rück</span></a>
-        <a class="qbtn" href="#" data-go="villa"><span class="e">🏡</span><span class="t">Villa del Mito</span><span class="d">Siracusa</span></a>
-        <a class="qbtn" href="#" data-go="auto"><span class="e">🚗</span><span class="t">Mietwagen</span><span class="d">Sixt · Peugeot</span></a>
-        <a class="qbtn" href="#" data-go="ausfluege"><span class="e">🏛️</span><span class="t">Ausflüge</span><span class="d">8 Ziele</span></a>
-        <a class="qbtn" href="#" data-go="essen"><span class="e">🍽️</span><span class="t">Essen</span><span class="d">Restaurants</span></a>
-        <a class="qbtn" href="#" data-go="todo"><span class="e">✅</span><span class="t">To-do</span><span class="d" id="todoCount">offene Punkte</span></a>
+        <a class="qbtn" href="#" data-go="fluege"><span class="e"><svg class="ic"><use href="#ic-plane"/></svg></span><span class="t">Flüge</span><span class="d">Hin &amp; Rück</span></a>
+        <a class="qbtn" href="#" data-go="villa"><span class="e"><svg class="ic"><use href="#ic-villa"/></svg></span><span class="t">Villa del Mito</span><span class="d">Siracusa</span></a>
+        <a class="qbtn" href="#" data-go="auto"><span class="e lemon"><svg class="ic"><use href="#ic-car"/></svg></span><span class="t">Mietwagen</span><span class="d">Sixt · Peugeot</span></a>
+        <a class="qbtn" href="#" data-go="ausfluege"><span class="e lemon"><svg class="ic"><use href="#ic-map"/></svg></span><span class="t">Ausflüge</span><span class="d">8 Ziele</span></a>
+        <a class="qbtn" href="#" data-go="essen"><span class="e"><svg class="ic"><use href="#ic-food"/></svg></span><span class="t">Essen</span><span class="d">Restaurants</span></a>
+        <a class="qbtn" href="#" data-go="todo"><span class="e"><svg class="ic"><use href="#ic-check"/></svg></span><span class="t">To-do</span><span class="d" id="todoCount">offene Punkte</span></a>
       </div>
 
       <div class="card">
-        <h3><span class="ic">📅</span>Auf einen Blick</h3>
+        <h3><svg class="ic"><use href="#ic-calendar"/></svg>Auf einen Blick</h3>
         <div class="row"><span class="k">Reisezeit</span><span class="v">Sa 11.07. – Sa 25.07.2026</span></div>
         <div class="row"><span class="k">Ziel</span><span class="v">Siracusa, Sizilien</span></div>
         <div class="row"><span class="k">Unterkunft</span><span class="v">Villa del Mito</span></div>
@@ -164,7 +203,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="ic">💶</span>Bargeld mitnehmen</h3>
+        <h3><svg class="ic"><use href="#ic-cash"/></svg>Bargeld mitnehmen</h3>
         <div class="row"><span class="k">Kaution Villa</span><span class="v">€ 500 (bar)</span></div>
         <div class="row"><span class="k">Kurtaxe</span><span class="v">max. 5 €/Pers./Nacht (bar)</span></div>
         <div class="row"><span class="k">Sixt Kaution</span><span class="v">€ 300 (Karte)</span></div>
@@ -174,9 +213,9 @@
 
     <!-- FLÜGE -->
     <section class="screen" id="s-fluege">
-      <div class="pageHead"><h2>✈️ Flüge</h2><div class="sub">SWISS / Edelweiss Air</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-plane"/></svg>Flüge</h2><div class="sub">SWISS / Edelweiss Air</div></div>
       <div class="card">
-        <h3><span class="ic">🛫</span>Hinflug</h3>
+        <h3><svg class="ic"><use href="#ic-plane"/></svg>Hinflug</h3>
         <div class="row"><span class="k">Flug</span><span class="v">LX 8396</span></div>
         <div class="row"><span class="k">Datum</span><span class="v">Sa 11.07.2026</span></div>
         <div class="row"><span class="k">Route</span><span class="v">ZRH 15:45 → CTA 17:50</span></div>
@@ -184,20 +223,20 @@
         <div class="row"><span class="k">Personen</span><span class="v">Jost · Susanne · Remo · Livia</span></div>
       </div>
       <div class="card">
-        <h3><span class="ic">🛫</span>Hinflug Jana (separat)</h3>
+        <h3><svg class="ic"><use href="#ic-plane"/></svg>Hinflug Jana (separat)</h3>
         <div class="row"><span class="k">Flug</span><span class="v">LX 8398</span></div>
         <div class="row"><span class="k">Datum</span><span class="v">So 12.07.2026</span></div>
         <div class="row"><span class="k">Route</span><span class="v">ZRH 17:50 → CTA 19:55</span></div>
         <div class="row"><span class="k">Referenz</span><span class="v">Z9DCLC</span></div>
       </div>
       <div class="card">
-        <h3><span class="ic">🛬</span>Rückflug (alle 5)</h3>
+        <h3><svg class="ic"><use href="#ic-plane"/></svg>Rückflug (alle 5)</h3>
         <div class="row"><span class="k">Flug</span><span class="v">LX 8397</span></div>
         <div class="row"><span class="k">Datum</span><span class="v">Sa 25.07.2026</span></div>
         <div class="row"><span class="k">Route</span><span class="v">CTA 18:40 → ZRH 20:55</span></div>
       </div>
       <div class="card">
-        <h3><span class="ic">📲</span>Online Check-in</h3>
+        <h3><svg class="ic"><use href="#ic-ticket"/></svg>Online Check-in</h3>
         <div class="row"><span class="k">Ab</span><span class="v">10. Juli, 16:45</span></div>
         <div class="row"><span class="k">Wo</span><span class="v"><a class="call" href="https://www.swiss.com" target="_blank">swiss.com</a></span></div>
       </div>
@@ -205,36 +244,36 @@
 
     <!-- VILLA -->
     <section class="screen" id="s-villa">
-      <div class="pageHead"><h2>🏡 Villa del Mito</h2><div class="sub">Siracusa</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-villa"/></svg>Villa del Mito</h2><div class="sub">Siracusa</div></div>
       <div class="card">
-        <h3><span class="ic">📍</span>Unterkunft</h3>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Unterkunft</h3>
         <div class="row"><span class="k">Adresse</span><span class="v">Via Capo Passero 75, Siracusa SR</span></div>
         <div class="row"><span class="k">Zeitraum</span><span class="v">11.07. – 25.07.2026</span></div>
         <div class="row"><span class="k">Buchung</span><span class="v">2025-655-313/2026</span></div>
         <div class="row"><span class="k">Preis</span><span class="v"><span class="pill ok">€ 13.440 · bezahlt</span></span></div>
       </div>
       <div class="card">
-        <h3><span class="ic">💶</span>Vor Ort (bar)</h3>
+        <h3><svg class="ic"><use href="#ic-cash"/></svg>Vor Ort (bar)</h3>
         <div class="row"><span class="k">Kaution</span><span class="v">€ 500</span></div>
         <div class="row"><span class="k">Kurtaxe</span><span class="v">max. 5 €/Pers./Nacht</span></div>
       </div>
       <a class="em" href="tel:+390941361681">
-        <span class="e">📞</span>
+        <span class="e"><svg class="ic"><use href="#ic-phone"/></svg></span>
         <span class="info"><b>Nunzio Carianni</b><span>Schlüsselübergabe koordinieren</span></span>
         <span class="num">+39 0941 361681</span>
       </a>
       <a class="em" href="https://maps.apple.com/?q=Via+Capo+Passero+75,+Siracusa" target="_blank">
-        <span class="e">🗺️</span>
+        <span class="e"><svg class="ic"><use href="#ic-map"/></svg></span>
         <span class="info"><b>In Karten öffnen</b><span>Via Capo Passero 75</span></span>
-        <span class="num">›</span>
+        <span class="num"><svg class="ic" style="width:16px;height:16px"><use href="#ic-arr"/></svg></span>
       </a>
     </section>
 
     <!-- AUTO -->
     <section class="screen" id="s-auto">
-      <div class="pageHead"><h2>🚗 Mietwagen</h2><div class="sub">Sixt · Flughafen Catania</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-car"/></svg>Mietwagen</h2><div class="sub">Sixt · Flughafen Catania</div></div>
       <div class="card">
-        <h3><span class="ic">🚙</span>Reservierung</h3>
+        <h3><svg class="ic"><use href="#ic-car"/></svg>Reservierung</h3>
         <div class="row"><span class="k">Res.-Nr.</span><span class="v">9733734844</span></div>
         <div class="row"><span class="k">Fahrzeug</span><span class="v">Peugeot 3008 (SFAR)</span></div>
         <div class="row"><span class="k">Hauptfahrer</span><span class="v">Jost Landtwing</span></div>
@@ -244,7 +283,7 @@
         <div class="row"><span class="k">Sicherheit</span><span class="v">€ 300 (Karte)</span></div>
       </div>
       <div class="card">
-        <h3><span class="ic">✅</span>All Inclusive</h3>
+        <h3><svg class="ic"><use href="#ic-check"/></svg>All Inclusive</h3>
         <div class="row"><span class="k">Versicherung</span><span class="v">Vollkasko + Haftpflicht</span></div>
         <div class="row"><span class="k">Kilometer</span><span class="v">unbegrenzt</span></div>
         <div class="row"><span class="k">Extras</span><span class="v">Zusatzfahrer · 24/7 Pannenhilfe</span></div>
@@ -253,110 +292,100 @@
 
     <!-- AUSFLÜGE -->
     <section class="screen" id="s-ausfluege">
-      <div class="pageHead"><h2>🏛️ Ausflüge</h2><div class="sub">Die schönsten Ziele rund um Siracusa</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-map"/></svg>Ausflüge</h2><div class="sub">Die schönsten Ziele rund um Siracusa</div></div>
 
-      <!-- Ortigia -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#aee3e8,#5ec3c9)"><img loading="lazy" alt="Ortigia – Dom von Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ortigia,_duomo,_facciata_01.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🏝️</span>Ortigia</h3>
+        <div class="banner" style="background:#aee3e8"><img loading="lazy" alt="Ortigia – Dom von Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ortigia,_duomo,_facciata_01.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Ortigia</h3>
         <p class="desc">Die historische Altstadt-Insel von Siracusa: verwinkelte Gassen, der barocke Dom an der Piazza Duomo und Cafés direkt am Meer. Abends die schönste Bummelmeile.</p>
         <div class="meta"><span class="tag">im Zentrum · 5 Min</span><span class="tag">Altstadt</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Ortigia,+Siracusa" target="_blank">🗺️ Karte</a></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Ortigia,+Siracusa" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
 
-      <!-- Neapolis -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#f6d9a8,#e2a85c)"><img loading="lazy" alt="Griechisches Theater Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Teatro_greco_di_Siracusa.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🏛️</span>Parco Neapolis</h3>
+        <div class="banner" style="background:#f6d9a8"><img loading="lazy" alt="Griechisches Theater Siracusa" src="https://commons.wikimedia.org/wiki/Special:FilePath/Teatro_greco_di_Siracusa.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Parco Neapolis</h3>
         <p class="desc">Antiker Archäologiepark mit dem riesigen Griechischen Theater und dem „Ohr des Dionysios". Im Sommer finden hier echte griechische Tragödien statt. Eintritt ca. € 13.50.</p>
         <div class="meta"><span class="tag">10 Min</span><span class="tag">8:30–19:40 Uhr</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Parco+Archeologico+della+Neapolis+Siracusa" target="_blank">🗺️ Karte</a><a class="lnk alt" href="https://parchiarcheologici.regione.sicilia.it/siracusa-eloro-villa-tellaro-akrai/en/biglietti/area-archeologica-della-neapolis/" target="_blank">🎟️ Tickets</a></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Parco+Archeologico+della+Neapolis+Siracusa" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a><a class="lnk alt" href="https://parchiarcheologici.regione.sicilia.it/siracusa-eloro-villa-tellaro-akrai/en/biglietti/area-archeologica-della-neapolis/" target="_blank"><svg class="ic"><use href="#ic-ticket"/></svg>Tickets</a></div>
       </div>
 
-      <!-- Noto -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#fbe7bd,#edc77f)"><img loading="lazy" alt="Kathedrale von Noto" src="https://commons.wikimedia.org/wiki/Special:FilePath/La_cattedrale_di_Noto_restaurata.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">⛪</span>Noto</h3>
+        <div class="banner" style="background:#fbe7bd"><img loading="lazy" alt="Kathedrale von Noto" src="https://commons.wikimedia.org/wiki/Special:FilePath/La_cattedrale_di_Noto_restaurata.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Noto</h3>
         <p class="desc">Die „Hauptstadt des sizilianischen Barock" – nach dem Erdbeben 1693 komplett in goldenem Stein neu erbaut. Prachtvolle Treppen, Kirchen und Eisdielen. Ideal für den späten Nachmittag.</p>
         <div class="meta"><span class="tag">~40 Min</span><span class="tag">UNESCO</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Noto,+Sicilia" target="_blank">🗺️ Karte</a></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Noto,+Sicilia" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
 
-      <!-- Marzamemi -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#ffd9a0,#5aa9c4)"><img loading="lazy" alt="Marzamemi Piazzetta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Marzamemi_Piazzetta.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">⚓</span>Marzamemi</h3>
+        <div class="banner" style="background:#ffd9a0"><img loading="lazy" alt="Marzamemi Piazzetta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Marzamemi_Piazzetta.JPG?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Marzamemi</h3>
         <p class="desc">Malerisches Fischerdorf an der Südspitze – bunte Boote, eine ehemalige Thunfischfabrik (Tonnara) und die romantische Piazza Regina Margherita. Perfekt für ein Mittagessen am Wasser.</p>
         <div class="meta"><span class="tag">~50 Min</span><span class="tag">Fischerdorf</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Marzamemi" target="_blank">🗺️ Karte</a></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Marzamemi" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
 
-      <!-- Vendicari -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#bdeaf2,#6fd0d8)"><img loading="lazy" alt="Cala Mosche – Vendicari" src="https://commons.wikimedia.org/wiki/Special:FilePath/Calamosche_(Riserva_di_Vendicari)_-_panoramio.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🏖️</span>Vendicari & Cala Mosche</h3>
+        <div class="banner" style="background:#bdeaf2"><img loading="lazy" alt="Cala Mosche – Vendicari" src="https://commons.wikimedia.org/wiki/Special:FilePath/Calamosche_(Riserva_di_Vendicari)_-_panoramio.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Vendicari &amp; Cala Mosche</h3>
         <p class="desc">Naturreservat mit unberührten Traumstränden, Flamingos und einer alten Tonnara. Cala Mosche gilt als einer der schönsten Strände Siziliens – früh kommen, begrenzte Plätze!</p>
-        <div class="meta"><span class="tag">~45 Min</span><span class="tag">Strand & Natur</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Riserva+Naturale+Vendicari" target="_blank">🗺️ Karte</a></div>
+        <div class="meta"><span class="tag">~45 Min</span><span class="tag">Strand &amp; Natur</span></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Riserva+Naturale+Vendicari" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
 
-      <!-- Etna -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#3a4a66,#6e7f9b)"><img loading="lazy" alt="Ätna" src="https://commons.wikimedia.org/wiki/Special:FilePath/Etna_06.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🌋</span>Ätna</h3>
-        <p class="desc">Europas grösster aktiver Vulkan (3.300 m). Geführte Tagestouren bis zu den Gipfelkratern oder per Seilbahn. Festes Schuhwerk & warme Jacke mitnehmen – oben ist es kühl. <b>In der Hochsaison früh buchen!</b></p>
+        <div class="banner" style="background:#3a4a66"><img loading="lazy" alt="Ätna" src="https://commons.wikimedia.org/wiki/Special:FilePath/Etna_06.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Ätna</h3>
+        <p class="desc">Europas grösster aktiver Vulkan (3.300 m). Geführte Tagestouren bis zu den Gipfelkratern oder per Seilbahn. Festes Schuhwerk &amp; warme Jacke mitnehmen – oben ist es kühl. <b>In der Hochsaison früh buchen!</b></p>
         <div class="meta"><span class="tag">~1 h 45</span><span class="tag star">Tagestour</span></div>
-        <div class="links"><a class="lnk book" href="https://www.getyourguide.com/etna-l2285/" target="_blank">🎫 Tour buchen</a><a class="lnk alt" href="https://maps.apple.com/?q=Etna" target="_blank">🗺️ Karte</a></div>
+        <div class="links"><a class="lnk book" href="https://www.getyourguide.com/etna-l2285/" target="_blank"><svg class="ic"><use href="#ic-ticket"/></svg>Tour buchen</a><a class="lnk alt" href="https://maps.apple.com/?q=Etna" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
 
-      <!-- Cavagrande -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#cfe8b6,#7fb96a)"><img loading="lazy" alt="Cavagrande del Cassibile" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avola_antica_-_Cavagrande_del_Cassibile.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">💦</span>Cavagrande del Cassibile</h3>
+        <div class="banner" style="background:#cfe8b6"><img loading="lazy" alt="Cavagrande del Cassibile" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avola_antica_-_Cavagrande_del_Cassibile.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-map"/></svg>Cavagrande del Cassibile</h3>
         <p class="desc">Spektakuläre Schlucht mit türkisen Naturpools zum Baden. Der Abstieg ins Tal ist steil (gute Schuhe!), aber die smaragdgrünen Becken sind die Belohnung. Ein Geheimtipp für heisse Tage.</p>
-        <div class="meta"><span class="tag">~40 Min</span><span class="tag">Wandern & Baden</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Cavagrande+del+Cassibile" target="_blank">🗺️ Karte</a></div>
+        <div class="meta"><span class="tag">~40 Min</span><span class="tag">Wandern &amp; Baden</span></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=Cavagrande+del+Cassibile" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a></div>
       </div>
-      <!-- Bootsvermietung -->
+
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#a9e6ee,#2f9fb0)"><img loading="lazy" alt="Plemmirio / Pillirina Küste" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alba_alla_Pillirina.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">⛵</span>Bootsvermietung & -touren</h3>
+        <div class="banner" style="background:#a9e6ee"><img loading="lazy" alt="Plemmirio / Pillirina Küste" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alba_alla_Pillirina.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-boat"/></svg>Bootsvermietung &amp; -touren</h3>
         <p class="desc">Das Meer von der Wasserseite erleben: kleine Motorboote gibt es ab dem Hafen von Ortigia auch <b>ohne Bootsführerschein</b> (Einweisung inklusive). Schönste Ziele: die Grotten von Ortigia, die Bucht Pillirina und das Naturschutzgebiet Plemmirio. Wer entspannen will, bucht eine Tour mit Skipper.</p>
         <div class="meta"><span class="tag">ab Ortigia-Hafen</span><span class="tag">ohne Führerschein möglich</span></div>
-        <div class="links"><a class="lnk book" href="https://www.clickandboat.com/en/rentals/country-italy/province-free-municipal-consortium-of-syracuse/city-syracuse" target="_blank">⛵ Boot mieten</a><a class="lnk alt" href="https://www.samboat.com/boat-rental/siracusa/with-captain" target="_blank">🧭 Mit Skipper</a><a class="lnk alt" href="https://maps.apple.com/?q=Porto+Grande+Siracusa+Ortigia" target="_blank">🗺️ Hafen</a></div>
+        <div class="links"><a class="lnk book" href="https://www.clickandboat.com/en/rentals/country-italy/province-free-municipal-consortium-of-syracuse/city-syracuse" target="_blank"><svg class="ic"><use href="#ic-boat"/></svg>Boot mieten</a><a class="lnk alt" href="https://www.samboat.com/boat-rental/siracusa/with-captain" target="_blank"><svg class="ic"><use href="#ic-boat"/></svg>Mit Skipper</a><a class="lnk alt" href="https://maps.apple.com/?q=Porto+Grande+Siracusa+Ortigia" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Hafen</a></div>
       </div>
       <div class="footer">Fahrzeiten ab Siracusa, ungefähr. Karten öffnen in Apple/Google Maps.</div>
     </section>
 
     <!-- ESSEN -->
     <section class="screen" id="s-essen">
-      <div class="pageHead"><h2>🍽️ Essen</h2><div class="sub">Restaurants in Ortigia · min. 2 Wochen vorher reservieren</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-food"/></svg>Essen</h2><div class="sub">Restaurants in Ortigia · min. 2 Wochen vorher reservieren</div></div>
 
-      <!-- Cortile Spirito Santo -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#3b4a4a,#1c2626)"><img loading="lazy" alt="Sizilianische Caponata" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sicilian_caponata.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">⭐</span>Cortile Spirito Santo</h3>
+        <div class="banner" style="background:#3b4a4a"><img loading="lazy" alt="Sizilianische Caponata" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sicilian_caponata.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-star"/></svg>Cortile Spirito Santo</h3>
         <p class="desc">Feine, kreative sizilianische Küche von Chef Giuseppe Torrisi – im Michelin-Guide gelistet. Elegant, kunstvoll angerichtet, ein langer Genuss-Abend (gut 3 Stunden). Via Salomone 19.</p>
         <div class="meta"><span class="tag star">★ Michelin</span><span class="tag">Fine Dining</span></div>
-        <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/cortile-spirito-santo-r651447" target="_blank">🍽️ Reservieren</a><a class="lnk alt" href="tel:+390931815404">📞 Anrufen</a></div>
+        <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/cortile-spirito-santo-r651447" target="_blank"><svg class="ic"><use href="#ic-food"/></svg>Reservieren</a><a class="lnk alt" href="tel:+390931815404"><svg class="ic"><use href="#ic-phone"/></svg>Anrufen</a></div>
       </div>
 
-      <!-- Don Camillo -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#f3e9d6,#e3d0ab)"><img loading="lazy" alt="Sizilianische Pasta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_Puttanesca.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🐟</span>Don Camillo</h3>
+        <div class="banner" style="background:#f3e9d6"><img loading="lazy" alt="Sizilianische Pasta" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_Puttanesca.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-food"/></svg>Don Camillo</h3>
         <p class="desc">Klassiker im Herzen von Ortigia – raffiniert, aber gastfreundlich. Bekannt für sein Fisch-Degustationsmenü und die grosse Weinkarte. Reservierung über TheFork.</p>
-        <div class="meta"><span class="tag">Fisch & Wein</span><span class="tag">Ortigia</span></div>
-        <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/don-camillo-r755389" target="_blank">🍽️ Reservieren</a></div>
+        <div class="meta"><span class="tag">Fisch &amp; Wein</span><span class="tag">Ortigia</span></div>
+        <div class="links"><a class="lnk book" href="https://www.thefork.com/restaurant/don-camillo-r755389" target="_blank"><svg class="ic"><use href="#ic-food"/></svg>Reservieren</a></div>
       </div>
 
-      <!-- La Terrazza -->
       <div class="card">
-        <div class="banner" style="background:linear-gradient(160deg,#ffe1a6,#62b2cb)"><img loading="lazy" alt="Frutta di Martorana – sizilianisches Marzipan" src="https://commons.wikimedia.org/wiki/Special:FilePath/Frutta_di_martorana.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
-        <h3><span class="ic">🌅</span>La Terrazza</h3>
+        <div class="banner" style="background:#ffe1a6"><img loading="lazy" alt="Frutta di Martorana – sizilianisches Marzipan" src="https://commons.wikimedia.org/wiki/Special:FilePath/Frutta_di_martorana.jpg?width=900" onerror="this.style.display='none'"><span class="credit">© Wikimedia</span></div>
+        <h3><svg class="ic"><use href="#ic-food"/></svg>La Terrazza</h3>
         <p class="desc">Mediterrane Küche mit Terrassen-Atmosphäre – schön für einen entspannten Abend mit Aussicht. Tisch am besten vorab über TheFork oder telefonisch sichern.</p>
         <div class="meta"><span class="tag">Terrasse</span><span class="tag">Mediterran</span></div>
-        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=La+Terrazza+Ortigia+Siracusa" target="_blank">🗺️ Karte</a><a class="lnk alt" href="https://www.thefork.it" target="_blank">🍽️ TheFork</a></div>
+        <div class="links"><a class="lnk" href="https://maps.apple.com/?q=La+Terrazza+Ortigia+Siracusa" target="_blank"><svg class="ic"><use href="#ic-map"/></svg>Karte</a><a class="lnk alt" href="https://www.thefork.it" target="_blank"><svg class="ic"><use href="#ic-food"/></svg>TheFork</a></div>
       </div>
       <p class="sectTip">💡 In der Hochsaison (Juli) sind die guten Adressen schnell ausgebucht – mindestens 2 Wochen im Voraus reservieren.</p>
       <div class="footer"></div>
@@ -364,18 +393,18 @@
 
     <!-- TO-DO -->
     <section class="screen" id="s-todo">
-      <div class="pageHead"><h2>✅ To-do vor der Reise</h2><div class="sub">Antippen zum Abhaken</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-check"/></svg>To-do vor der Reise</h2><div class="sub">Antippen zum Abhaken</div></div>
       <div class="prog"><i id="progBar"></i></div>
       <div class="progTxt" id="progTxt">0 von 0 erledigt</div>
       <div class="card">
         <ul class="todo" id="todoList">
-          <li data-id="zug"><span class="chk"></span><span class="txt">Zugticket ZRH Flughafen lösen<small>SBB App · HB → ZRH · ~45 Min.</small></span></li>
-          <li data-id="schluessel"><span class="chk"></span><span class="txt">Schlüsselübergabe mit Nunzio koordinieren<small>einige Tage vor 11. Juli</small></span></li>
-          <li data-id="resto"><span class="chk"></span><span class="txt">Restaurants reservieren<small>Cortile Spirito Santo ⭐ · Don Camillo · La Terrazza (thefork.it, min. 2 Wochen vorher)</small></span></li>
-          <li data-id="aetna"><span class="chk"></span><span class="txt">Ätna-Tour buchen<small>Viator / GetYourGuide · Hochsaison → jetzt!</small></span></li>
-          <li data-id="checkin"><span class="chk"></span><span class="txt">Online Check-in SWISS<small>10. Juli ab 16:45 · swiss.com</small></span></li>
-          <li data-id="bargeld"><span class="chk"></span><span class="txt">Bargeld besorgen<small>€ 500 Kaution + € 350 Kurtaxe (bar) + Sixt € 300 (Karte)</small></span></li>
-          <li data-id="paesse"><span class="chk"></span><span class="txt">Pässe gültig prüfen + Führerschein Jost<small>für alle 5 Personen</small></span></li>
+          <li data-id="zug"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Zugticket ZRH Flughafen lösen<small>SBB App · HB → ZRH · ~45 Min.</small></span></li>
+          <li data-id="schluessel"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Schlüsselübergabe mit Nunzio koordinieren<small>einige Tage vor 11. Juli</small></span></li>
+          <li data-id="resto"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Restaurants reservieren<small>Cortile Spirito Santo ★ · Don Camillo · La Terrazza (thefork.it, min. 2 Wochen vorher)</small></span></li>
+          <li data-id="aetna"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Ätna-Tour buchen<small>Viator / GetYourGuide · Hochsaison → jetzt!</small></span></li>
+          <li data-id="checkin"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Online Check-in SWISS<small>10. Juli ab 16:45 · swiss.com</small></span></li>
+          <li data-id="bargeld"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Bargeld besorgen<small>€ 500 Kaution + € 350 Kurtaxe (bar) + Sixt € 300 (Karte)</small></span></li>
+          <li data-id="paesse"><span class="chk"><svg class="ic"><use href="#ic-check"/></svg></span><span class="txt">Pässe gültig prüfen + Führerschein Jost<small>für alle 5 Personen</small></span></li>
         </ul>
       </div>
       <button class="resetBtn" id="resetTodo">Alle zurücksetzen</button>
@@ -383,41 +412,39 @@
 
     <!-- NOTFALL -->
     <section class="screen" id="s-notfall">
-      <div class="pageHead"><h2>🆘 Notfall & Kontakte</h2><div class="sub">Im Ernstfall griffbereit</div></div>
+      <div class="pageHead"><h2><svg class="ic"><use href="#ic-aid"/></svg>Notfall &amp; Kontakte</h2><div class="sub">Im Ernstfall griffbereit</div></div>
 
       <div class="emHead">Notruf Italien</div>
-      <a class="em" href="tel:112"><span class="e">🚨</span><span class="info"><b>Allgemeiner Notruf</b><span>Polizei · Feuerwehr · Rettung (EU)</span></span><span class="num">112</span></a>
-      <a class="em" href="tel:118"><span class="e">🚑</span><span class="info"><b>Rettungsdienst</b><span>Medizinischer Notfall</span></span><span class="num">118</span></a>
+      <a class="em" href="tel:112"><span class="e warm"><svg class="ic"><use href="#ic-aid"/></svg></span><span class="info"><b>Allgemeiner Notruf</b><span>Polizei · Feuerwehr · Rettung (EU)</span></span><span class="num">112</span></a>
+      <a class="em" href="tel:118"><span class="e warm"><svg class="ic"><use href="#ic-aid"/></svg></span><span class="info"><b>Rettungsdienst</b><span>Medizinischer Notfall</span></span><span class="num">118</span></a>
 
       <div class="emHead">TCS ETI Schutzbrief</div>
-      <a class="em" href="tel:+41588272220"><span class="e">🛟</span><span class="info"><b>24h Notfall TCS</b><span>Welt Plus Familie · Ref. 011.403.076 · gültig bis 12.04.2027</span></span><span class="num">+41 58 827 22 20</span></a>
+      <a class="em" href="tel:+41588272220"><span class="e"><svg class="ic"><use href="#ic-phone"/></svg></span><span class="info"><b>24h Notfall TCS</b><span>Welt Plus Familie · Ref. 011.403.076 · gültig bis 12.04.2027</span></span><span class="num">+41 58 827 22 20</span></a>
 
       <div class="emHead">TCS Verkehrsrechtsschutz</div>
-      <a class="em" href="tel:+41588277777"><span class="e">⚖️</span><span class="info"><b>Assista Rechtsschutz</b><span>Police PO011403076-10700/02 · gültig bis 30.01.2027</span></span><span class="num">058 827 77 77</span></a>
+      <a class="em" href="tel:+41588277777"><span class="e"><svg class="ic"><use href="#ic-phone"/></svg></span><span class="info"><b>Assista Rechtsschutz</b><span>Police PO011403076-10700/02 · gültig bis 30.01.2027</span></span><span class="num">058 827 77 77</span></a>
 
       <div class="emHead">Vor Ort</div>
-      <a class="em" href="tel:+390941361681"><span class="e">🔑</span><span class="info"><b>Nunzio Carianni (Villa)</b><span>Vermieter / Schlüssel</span></span><span class="num">+39 0941 361681</span></a>
+      <a class="em" href="tel:+390941361681"><span class="e"><svg class="ic"><use href="#ic-villa"/></svg></span><span class="info"><b>Nunzio Carianni (Villa)</b><span>Vermieter / Schlüssel</span></span><span class="num">+39 0941 361681</span></a>
       <div class="footer">SWISS Service-Center und Sixt-Pannenhilfe-Nummern stehen auf den jeweiligen Buchungsbestätigungen.</div>
     </section>
 
   </div>
 
-  <!-- TAB BAR -->
   <nav class="tabbar">
-    <button class="tab active" data-tab="home"><span class="ti">🏠</span>Home</button>
-    <button class="tab" data-tab="fluege"><span class="ti">✈️</span>Flüge</button>
-    <button class="tab" data-tab="villa"><span class="ti">🏡</span>Villa</button>
-    <button class="tab" data-tab="auto"><span class="ti">🚗</span>Auto</button>
-    <button class="tab" data-tab="ausfluege"><span class="ti">🏛️</span>Ausflüge</button>
-    <button class="tab" data-tab="essen"><span class="ti">🍽️</span>Essen</button>
-    <button class="tab" data-tab="todo"><span class="ti">✅</span>To-do</button>
-    <button class="tab" data-tab="notfall"><span class="ti">🆘</span>Notfall</button>
+    <button class="tab active" data-tab="home"><svg class="ic"><use href="#ic-home"/></svg>Home</button>
+    <button class="tab" data-tab="fluege"><svg class="ic"><use href="#ic-plane"/></svg>Flüge</button>
+    <button class="tab" data-tab="villa"><svg class="ic"><use href="#ic-villa"/></svg>Villa</button>
+    <button class="tab" data-tab="auto"><svg class="ic"><use href="#ic-car"/></svg>Auto</button>
+    <button class="tab" data-tab="ausfluege"><svg class="ic"><use href="#ic-map"/></svg>Ausflüge</button>
+    <button class="tab" data-tab="essen"><svg class="ic"><use href="#ic-food"/></svg>Essen</button>
+    <button class="tab" data-tab="todo"><svg class="ic"><use href="#ic-check"/></svg>To-do</button>
+    <button class="tab" data-tab="notfall"><svg class="ic"><use href="#ic-aid"/></svg>Notfall</button>
   </nav>
 </div>
 
 <script>
 (function(){
-  // --- Navigation ---
   function go(name){
     document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -427,7 +454,6 @@
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>go(t.dataset.tab)));
   document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();go(b.dataset.go);}));
 
-  // --- Countdown ---
   var target=new Date('2026-07-11T15:45:00+02:00').getTime();
   function tick(){
     var now=Date.now(), diff=target-now;
@@ -435,21 +461,18 @@
     var note=document.getElementById('cdNote');
     if(diff<=0){
       var back=new Date('2026-07-25T20:55:00+02:00').getTime();
-      if(now<back){ dEl.textContent='🌴'; hEl.textContent='in'; mEl.textContent='Sizilien'; note.textContent='Geniesst die Ferien!'; }
-      else { dEl.textContent='❤️'; hEl.textContent='—'; mEl.textContent='—'; note.textContent='Willkommen zuhause'; }
+      if(now<back){ dEl.textContent='☀'; hEl.textContent='in'; mEl.textContent='Sizilien'; note.textContent='Geniesst die Ferien!'; }
+      else { dEl.textContent='♥'; hEl.textContent='—'; mEl.textContent='—'; note.textContent='Willkommen zuhause'; }
       return;
     }
-    var d=Math.floor(diff/86400000);
-    var h=Math.floor(diff%86400000/3600000);
-    var m=Math.floor(diff%3600000/60000);
-    dEl.textContent=d; hEl.textContent=h; mEl.textContent=m;
+    dEl.textContent=Math.floor(diff/86400000);
+    hEl.textContent=Math.floor(diff%86400000/3600000);
+    mEl.textContent=Math.floor(diff%3600000/60000);
   }
   tick(); setInterval(tick,1000*30);
 
-  // --- To-do with persistence ---
   var KEY='sizilien2026_todo';
-  var state={};
-  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  var state={}; try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
   var items=document.querySelectorAll('#todoList li');
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
   function render(){
@@ -458,25 +481,50 @@
       var id=li.dataset.id, on=!!state[id];
       li.classList.toggle('done',on);
       li.querySelector('.chk').classList.toggle('done',on);
-      li.querySelector('.chk').textContent=on?'✓':'';
       if(on) done++;
     });
-    var total=items.length;
-    var pct=total?Math.round(done/total*100):0;
+    var total=items.length, pct=total?Math.round(done/total*100):0;
     document.getElementById('progBar').style.width=pct+'%';
     document.getElementById('progTxt').textContent=done+' von '+total+' erledigt';
     var open=total-done;
-    document.getElementById('todoCount').textContent=open===0?'alles erledigt 🎉':(open+' offene Punkte');
+    document.getElementById('todoCount').textContent=open===0?'alles erledigt':(open+' offene Punkte');
   }
-  items.forEach(function(li){
-    li.addEventListener('click',function(){
-      var id=li.dataset.id; state[id]=!state[id]; save(); render();
-    });
-  });
-  document.getElementById('resetTodo').addEventListener('click',function(){
-    state={}; save(); render();
-  });
+  items.forEach(function(li){ li.addEventListener('click',function(){ var id=li.dataset.id; state[id]=!state[id]; save(); render(); }); });
+  document.getElementById('resetTodo').addEventListener('click',function(){ state={}; save(); render(); });
   render();
+
+  // Wetter (Open-Meteo, kein Schlüssel)
+  function wmo(c){
+    if(c===0) return ['Klar','ic-sun'];
+    if(c<=2) return ['Heiter','ic-suncloud'];
+    if(c===3) return ['Bewölkt','ic-cloud'];
+    if(c>=45&&c<=48) return ['Nebel','ic-cloud'];
+    if(c>=51&&c<=67) return ['Regen','ic-rain'];
+    if(c>=71&&c<=77) return ['Schnee','ic-cloud'];
+    if(c>=80&&c<=82) return ['Schauer','ic-rain'];
+    if(c>=95) return ['Gewitter','ic-storm'];
+    return ['Wechselhaft','ic-suncloud'];
+  }
+  function dayName(iso){ return ['So','Mo','Di','Mi','Do','Fr','Sa'][new Date(iso).getDay()]; }
+  var url='https://api.open-meteo.com/v1/forecast?latitude=37.07&longitude=15.29&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=4';
+  fetch(url).then(function(r){ return r.json(); }).then(function(d){
+    var cur=d.current, dy=d.daily, ci=wmo(cur.weather_code);
+    var h='<div class="wx"><svg class="wxIcon"><use href="#'+ci[1]+'"/></svg>'+
+      '<div><div class="wxTemp">'+Math.round(cur.temperature_2m)+'°</div>'+
+      '<div class="wxCond">'+ci[0]+' · jetzt in Siracusa</div></div></div>';
+    h+='<div class="wxDays">';
+    for(var i=0;i<dy.time.length;i++){
+      var di=wmo(dy.weather_code[i]);
+      h+='<div class="wxDay"><div class="d">'+(i===0?'Heute':dayName(dy.time[i]))+'</div>'+
+        '<svg class="wi"><use href="#'+di[1]+'"/></svg>'+
+        '<div class="mx">'+Math.round(dy.temperature_2m_max[i])+'°</div>'+
+        '<div class="mn">'+Math.round(dy.temperature_2m_min[i])+'°</div></div>';
+    }
+    h+='</div>';
+    document.getElementById('wxBody').innerHTML=h;
+  }).catch(function(){
+    document.getElementById('wxBody').innerHTML='<div class="wxErr">Wetter offline nicht verfügbar – bei Internetverbindung erscheint es hier automatisch.</div>';
+  });
 })();
 </script>
 </body>
