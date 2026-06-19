@@ -114,6 +114,11 @@
 
   .footer{ text-align:center; color:var(--muted); font-size:12px; padding:18px 16px; }
 
+  .gallery{ display:flex; gap:8px; overflow-x:auto; padding:14px 16px 2px; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; }
+  .gallery::-webkit-scrollbar{ display:none; }
+  .gallery img{ height:200px; min-width:280px; width:auto; object-fit:cover; border-radius:16px; scroll-snap-align:center; flex-shrink:0; background:#cfeef2; }
+  .galCredit{ font-size:11px; color:var(--muted); margin:4px 16px 0; }
+
   .banner{ margin:-16px -16px 14px; height:150px; overflow:hidden; border-radius:16px 16px 0 0; background:#cfeef2; position:relative; }
   .banner img{ display:block; width:100%; height:100%; object-fit:cover; }
   .banner .credit{ position:absolute; right:6px; bottom:4px; font-size:9px; color:rgba(255,255,255,.85); background:rgba(0,0,0,.28); padding:1px 6px; border-radius:8px; }
@@ -245,6 +250,15 @@
     <!-- VILLA -->
     <section class="screen" id="s-villa">
       <div class="pageHead"><h2><svg class="ic"><use href="#ic-villa"/></svg>Villa del Mito</h2><div class="sub">Siracusa</div></div>
+      <div class="gallery">
+        <img loading="lazy" alt="Villa del Mito – Pool mit Meerblick" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/01.jpg" onerror="this.remove()">
+        <img loading="lazy" alt="Pool mit Palmen" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/11.jpg" onerror="this.remove()">
+        <img loading="lazy" alt="Felsbucht am Meer" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/08.jpg" onerror="this.remove()">
+        <img loading="lazy" alt="Überdachte Terrasse mit Meerblick" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/30.jpg" onerror="this.remove()">
+        <img loading="lazy" alt="Steinküche" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/20.jpg" onerror="this.remove()">
+        <img loading="lazy" alt="Schlafzimmer" src="https://finepropertysas.com/foto/struttura/442/gallerydicasa/35.jpg" onerror="this.remove()">
+      </div>
+      <div class="galCredit">Fotos: diCasainSicilia · <a class="call" href="https://dicasainsicilia.com/holiday-villas-sicily/villa-del-mito/album" target="_blank">ganze Galerie</a></div>
       <div class="card">
         <h3><svg class="ic"><use href="#ic-map"/></svg>Unterkunft</h3>
         <div class="row"><span class="k">Adresse</span><span class="v">Via Capo Passero 75, Siracusa SR</span></div>
